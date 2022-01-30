@@ -52,6 +52,10 @@ git rebase <branch>
      appends all commits of the <current branch> since <common ancestor> to the now altered <current branch>
 
 git remote -v => view url of remote git repository
+git remote add origin <url> => add url of remote repo and name the ref origin
+git remote -uno
+    => check whether the branch you are tracking is the same in both the local and remote repository
+       if there is no message, the local and remote are the same
 
 git reset[ --soft] <commit id>
 git reset[ --soft] HEAD~<n>
