@@ -96,7 +96,9 @@ branching strategies:
 conflicts due to unrelated histories between the local and remote repository. The conflict will happen when you try to pull changes from
 the remote repository into the local repository when you have already made changes in both of the repositories
 [extras]
-- don't interrupt a push to remote repo in progress
+- don't interrupt a push to remote repo in progress(let it fail by itself
+  if it is taking too long. May result in discoordination between local
+  and remote repository)
 
 How a file is added to the repository
 - Working tree/working directory => index/staging area => repository
