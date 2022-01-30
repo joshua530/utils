@@ -1,0 +1,43 @@
+Data redundancy - storing data that is a duplicate of other data or that can be directly computed from other data
+abstract data type - a data type defined purely by its operations(only the interface is of concern to the client, not the details of the
+implementation)
+
+head recursion - recursiveCall();process; ie signal other nodes to obtain their data; process data obtained from the signal + data at the 
+current node
+tail recursion - process;recursiveCall(); ie process data at current node; pass the data to other nodes through the signal
+In tail recursion, all the nodes will be aware of the final data in the end
+In head recursion, the nodes will only be aware of their data and of the data of the node[s] that come after them
+
+Message of node to subordinate node
+head recursion - "Process this data first, give me the result, then i'll process my data + your result and get my final result"
+tail recursion - "Take this processed data that contains my result, process my result + your data to get your result, then pass me the result 
+that you get"
+
+A recursive function:
+a) Handles the most basic case without calling the recursive function
+b) Passes a smaller case to a recursive call
+-> step no 1 when writing a recursive function is thinking about the base case
+-> step no 2 is thinking about how you are going to get closer to the solution with each recursive step
+
+Blueprint for a recursive function F given input I and question Q(BRI)
+1. if I is minimal(base case), provide a default answer
+2. Answer question Q using a recursive call for the 'rest of the data'(excluding the one 'belonging' to the current node)[for binary trees,
+the 'rest of the data' is data belonging to the left and right subtrees]
+3. Answer Q using data 'belonging' to the current node[for binary trees, data belonging to the current node is data held by the root node]
+4. Answer Q using answers from 2 and 3 for the whole of I[for binary trees, use data from the current node + data obtained from both the
+left and right node to answer Q]
+=> for an efficient recursive function, force yourself to design a recursive function in a way that the parameters it will receive are same as the parameters that an iterative solution's function would receive
+=> ⚠️ALWAYS strive to use head recursion
+
+The more experience you have in using components, the more confident
+you can be that you are starting in the right place. Until you develop that
+experience, you can use the trade-off between flexibility and work required
+as a rough guide. For each specific situation, ask yourself questions such as
+the following:
+-> Can I use the component as is, or does it require additional code to bolt
+it into my project?
+-> Am I confident that I understand the full extent of the problem, or the
+part that relates to this component, and that it will not change in the
+future?
+-> Will I increase my programming knowledge by choosing this component?
+

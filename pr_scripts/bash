@@ -1,0 +1,35 @@
+${some_var:-var} if some_var is not already set, use var
+${some_var:-} if some_var is not already set, use an empty string
+
+sudo -u <user> command
+help test
+
+${var} | $var is for variable expansion
+
+export command helps us to export environment variables so that they are available in all child processes, shells, and commands
+
+array=(a b c)
+-- loop over items in an array
+for x in ${array[@]:-};do
+#do something
+done
+-- loop over indices in an array
+for index in ${!array[@]:-};do
+#do something
+done
+
+neofetch
+seq <start> <end> (both start and end are inclusive)
+
+[range]
+for i in {<start>...<stop>};do (inclusive of start and stop)
+  <code>
+done
+
+for ((i=<n>; condition; <how to change i>)); do
+  <code>
+done
+
+for i in $(seq <start> <stop>); do
+  <code>
+done

@@ -1,0 +1,53 @@
+ℝ - set of real numbers. a real number is a value of continous quantity that can represent a distance along a line.
+  - real numbers represent points along the infinitely long number line
+  - ℝ = ℚ ∪ ℙ
+  - in short real numbers are 'real'. They exist in the 'real world'
+ℤ - integers
+⇔ - if and only if eg do something ⇔ condition -> do something will be considered if and only if the condition is met
+Δ | δ - the change in
+x̄ (x bar) - some unknown value
+ƶ
+⊆ - is a subset of. a⊆b -> a is a subset of b. Implies n(a) <= n(b)
+⊂ - is a proper subset of. a⊂b -> a is a proper subset of b ie b contains elements not in a. Implies n(a) < n(b)
+a∪b - union of a and b. the resulting set will be composed of items present in both a and b(a+b)
+a∩b - insersection of a and b. result will contain elements that are common to both a and b
+a-b - difference of a and b. result will contain elements of a that are absent in b
+~b - approximately/equivalent to b
+a⇔b - logical equality(a is logically equal to b|a=b)
+expression->expression2 - if then. if expression, then expression2
+f:a→b - f takes a as input and returns b
+⎣a/b⎦ - get the floor of expression in brackets
+⌈x⌉ - get ceiling of expression in brackets
+Π(capital pi) denotes a product for a range of numbers
+Σ(capital sigma) denotes summation for a range of numbers
+≠ - not equal to
+|x| - the absolute value of x(without -ve sign)
+∅ - empty set
+O - big o notation
+Ω - bit omega function(like big o notation, used to describe the complexity or performance of an algorithm)
+Θ - big theta notation
+∈ - is an element of if x∈A, then x is an element of set A
+∀ - for all eg ∀x∈A(for all x items that are members of the set A)
+| - such that eg ∃x|x>=1 -> there exists an item x such that x is greater than or equal to one
+∃ - there exists. eg ∃x∈C|x>0 -> there exists an element x which is a member of set C such that x is greater than zero
+ℕ - the set of natural numbers. natural number -> numbers that start from n=1 to n=∞
+ℚ - set of rational numbers. a rational number is a number that can be written as a fraction with integers. Its decimal form
+    either terminates or recurs
+ℙ - set of irrational numbers. an irrational number is a real number which cannot be expressed as a fraction. Its decimal form
+    never terminates and never repeats eg pi, euler's constant and √2
+⇒ - implies
+Ac/A'/complement of a set - the elements not in set A. If A is a subset of
+the set S, then A' is the set of elements in S that are not in A. ie S-A
+
+[0,4] - the range is inclusive of everything -> 0,1,2,3,4
+(0,4] - the range is exclusive of the first element -> 1,2,3,4
+[0,4) - the range is exclusive of the last element -> 0,1,2,3
+(0,4) - the range is exclusive of both the first and last elements -> 1,2,3
+
+a≡b(mod c) is saying a mod c = b
+A modulus cannot be negative. Therefore:
+To write -79 mod 17=-11 is not correct; -79 mod 17=6 is correct take 17-11=6 and write that as the result of the modulus
+In the same way, -3 mod 7=-3 but it is not correct. -3 mod 7=4 is correct
+take 7-3=4 then replace -3 with it
+
+

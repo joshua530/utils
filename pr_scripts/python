@@ -1,0 +1,3 @@
+print("{:,}".format(2000000000000000)) - insert commas
+print("{:,.2f}".format(num)) - add commas after every thousands place and format it to two decimal places
+

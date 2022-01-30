@@ -1,0 +1,138 @@
+Big Omega tells us the lower bound of the runtime of a function, and Big O tells us the upper bound.
+Theta - the lower and upper bound as n tends to infinity ie the running time will be bound by a certain lower bound(k1.n) and a certain 
+upper
+bound(k2.n) as n approaches infinity where k1 and k2 are constants
+Big omega - used when one wants to state the least amount of time an algorithm will take to execute without providing an upper bound
+asymptotic - approaching a value or curve closely. A line or curve that is asymptotic to a given curve is referred to as an asymptote of 
+the given curve.
+asymptotic behavior - As an illustration, suppose that we are interested in the properties of a function f(n) as n becomes very large. 
+If f(n) = n^2 + 3n, then as n becomes very large, the term 3n becomes insignificant compared to n^2. The function f(n) is said to be
+ "asymptotically equivalent to n^2, as n → ∞". This is often written symbolically as f(n) ~ n^2, which is read as "f(n) is asymptotic to
+  n^2".[a function's asymptotic behavior therefore means how the function behaves as its input size approaches infinity]
+Big O meaning - the running time grows at most this much, but it could grow more slowly
+Space complexity - how much extra space do we need to allocate in relation to the input size?
+canonical - a standard form of representation of data
+domain - the set to which the input values to a function are constrained
+bijection - a mapping between one object and another
+series - a sum of a sequence of terms ie a list of numbers with addition operations between them
+harmonic number - number which is a member of the harmonic series
+harmonic series - divergent infinite series. composed of sums of reciprocals from n=1 to ∞ ie 1/1+1/2+1/3....+1/∞
+limit - The value that a function or sequence approaches as the input/index approaches some value
+coefficient - a multiplicative constant placed before a variable in a polynomial
+polynomial - an expression consisting of variables and coefficients, that involves only the operations of addition, subtraction, 
+multiplication and non-negative integer exponentiation of variables
+P - a problem for which a polynomial time algorithm that can solve it exists
+NP - a problem whose solution can be verified in polynomial time
+NP-hard - it is at least as hard as any problem in NP; NP-complete - it is NP-hard, and also in NP itself
+NP-complete - nondeterministic polynomial-time complete(the set of decision problems that can be solved in polynomial time)
+np complete in simple terms - any class of algorithms for which no efficient solution has been found yet
+NP-complete problem - a problem for which the correctness of each solution can be verified quickly and a brute-force search algorithm can
+actually find a solution by trying all possible solutions
+polynomial time - An algorithm is said to be solvable in polynomial time if the number of steps required to complete the algorithm for a
+given input is O(n^k) for some nonnegative integer k, where n is the complexity of the input.(in other words, it is an 'easy' problem
+disjoint sets - sets that have no elements in common(their intersection is empty) a∩b→∅
+x is a root of the function f if f(x)=0
+recurrence relation - an equation that is defined in terms of itself. a recurrence relation can be used to analyze a recursive structure
+like a recursive algorithm
+master theorem - a theorem giving a solution in asymptotic terms for recurrence relations of the form T(n)=aT(n/b)+f(n) where a>=1 and b>1 are constants and n/b means either ⎣n/b⎦ or ⌈n/b⌉
+vector - a quantity that has both magnitude and direction but no position(math); a one dimensional array(computing)
+convex polygon - does not have an internal reflex angle
+concave polygon - has internal reflex angle[s]
+universal set - a set that is comprised of all elements in related sets without any repetitions
+mutually disjoint subsets - subsets that are members of a universal set but have no elements in common. A,B∈Z, A≠B, A∩B=∅
+
+
+
+lemma - a minor, proven proposition which acts as a stepping stone to a larger one
+amortized analysis - depending on the worst case time scenario for an algorithm can sometimes be too pessimistic. The solution to this is that both the costly and less costly operations during the runtime of an algorithm be considered. This is called amortized analysis
+
+Memory allocation[once a partition is allocated for a process, it cannot be allocated for another one]
+first fit - find first partition that can fit a process(size >= process)
+best fit - allocate the smallest partition that is big enough for a process(size >= process but smallest in the set of partitions that can 
+be able to fit the process)
+worst fit - allocate the largest partition that can fit a process to it(size >= process and partition should be the largest of all the 
+partitions that can fit the process)
+profiling - a dynamic programming technique that measures, for example the time and space complexity of a program, the usage of particular
+instructions, or the frequency and duration of function calls
+
+hyperthreading - a cpu divides its physical cores into virtual cores. These virtual cores are called threads
+cache miss - an event where the system requests data from cache when that data is currently not stored there. The system is then forced to 
+retrieve the data from a slower database. If the data is found in the database, it is stored in cache in anticipation of another cache 
+request so that the system will not have to hit the database again for the same data
+cache hit - system makes a request for data from cache and successfully obtains the requested data
+in place sort - uses no extra memory except that of the data structure being sorted
+incremental insertion - we build up a complicated structure on n items by ﬁrst building it on n−1 items and then making the necessary
+changes to add the last item.
+triangle inequality theorem - for any triangle the sum of the length of any 
+2 chosen sides should be greater than or equal to the length of the
+remaining side.
+
+On algorithms and their runtimes[for big oh of: n,log n,n log n,n^2,2^n,n!]
+• All such algorithms take roughly the same time for n = 10.
+• Any algorithm with n! running time becomes useless for n ≥ 20.
+• Algorithms whose running time is 2^n have a greater operating range, but
+become impractical for n > 40.
+• Quadratic-time algorithms whose running time is n 2 remain usable up to
+about n = 10, 000, but quickly deteriorate with larger inputs. They are likely
+to be hopeless for n > 1,000,000.
+• Linear-time and n lg n algorithms remain practical on inputs of one billion
+items.
+• An O(lg n) algorithm hardly breaks a sweat for any imaginable value of n.
+
+
+ General definitions
+---------------------
+black box - a device/system which is viewed in terms of its input and output but its internal workings are not known. ie only what goes in
+and what goes out is known but what happens inside it is not known.
+
+whenever you're looking to optimizing a program or solving a problem:
+- look at how the sorting is being done
+- divide the problem into smaller problems that can be solved individually
+- prune the input. Reduce the space of items that need to be iterated over
+- ensure you are using the most efficient data structure
+
+
+
+
+
+
+
+
+
+
+
+  functions
+-------------
+d(x,y) - A metric space is a set X together with a function d (called a metric or "distance function") which assigns a real number d(x, y) to every pair x, y belonging to X satisfying the properties (or axioms):
+    d(x, y) >= 0 and d(x, y) = 0 iff x = y,
+    d(x, y) = d(y, x),
+    d(x, y) + d(y, z) >= d(x, z).
+    
+Φ(x) - the cumulative normal density function. It is the integral of the Gaussian (normal) density from −∞ to x
+
+hash function - h(x) -> a function that maps a key x to a whole number in a fixed range
+ - if h(x) = h(y) then x and y might be equal(because of hash collision)
+ - if h(x) != h(y) then x and y are not equal
+ - hashing takes O(1) time
+ - if h(x) produces y then h(x) must always produce y and never another value
+ -> hash collision - when two objects x and y hash to the same value
+
+
+
+
+
+
+
+
+
+
+
+
+
+vertex disjoint
+a) vertex-disjoint path means there is not any same node except the end nodes during the path
+b) paths that don't have any vertices in common
+
+edge disjoint paths - paths that don't have any edges in common
+cache miss - an event where the system requests data from cache when that data is currently not stored there. The system is then forced to retrieve the data from a slower database. If the data is found in the database, it is stored in cache in anticipation of another cache request so that the system will not have to hit the database again for the same data
+cache hit - system makes a request for data from cache and successfully obtains the requested data

@@ -1,0 +1,23 @@
+outdegree/branching factor - the number of child nodes for a certain node
+digraph - directed graph
+graph negative cycle - a cycle whose edges sum up to a negative value
+degree of a node - the number of connections that a node has to other nodes in the network
+vertex disjoint - vertex-disjoint path means there is not any same node except the end nodes during the path
+chain - a sequence of vertices from one vertex to another using the edges
+connectivity - the smallest number of vertices/edges whose deletion will cause disconnection of the graph(vertex and edge disconnectivity)
+planar graph - graph that can be drawn on a plane so that edges intersect only at their endpoints. ie it is drawable without any edges
+intersecting.
+articulation vertex - a vertex whose removal leads to disconnection of the graph
+chromatic number - the minimum number of colours needed to colour vertices of a graph such that no two adjacent vertices of the graph have
+the same colour
+edge chromatic number/chromatic index - the minimum number of colours needed to colour a graph's edges such that no two edges sharing the
+same vertex have the same colour
+isomorphism - two graphs(say G and H) are isomorphic if there exists a mapping from G to H such that the two graphs are identical
+matching - the problem of finding a mapping(isomorphism) between graphs
+automorphism - a mapping of a graph to itself
+connected graph - a graph in which there is a path between any two points(you can move from one point to any other point in the graph)
+
+ trees(a tree is a connected graph without cycles)
+-------
+-> rooted tree - have a designated root node from which other nodes stem
+-> free tree - there is no designated root node

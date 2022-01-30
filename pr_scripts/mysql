@@ -1,0 +1,43 @@
+-- users
+select User from mysql.user;
+update mysql.user set password=PASSWORD(<password>) where User=<username>;
+alter user <username> identified by <password>;
+drop user <user>@<host>;
+create user <username>@<host> identified by <password>;
+grant <privileges> on <db/db.table> to <user>;
+show grants for <user>@<host>;
+revoke all[ privileges], grant option from <user>@<host>;
+revoke <privileges> on <db/db.table> from <user>;
+
+-- tables
+describe <table>;
+show create <table/database> <table/dbname>;
+drop table <table>;
+show create table <table>;
+alter table <table> add column new_column_name column_definition
+alter table <table> modify column <column> column_definition[change column specifications]
+alter table <table> drop column <column>
+[rename column]
+-> mariadb = alter table <table> change column <old name> to <new name>
+-> mysql = alter table <table> modify column <old name> to <new name>
+
+-- databases
+drop database <database>;
+create database <db>;
+show create database <db>;
+show tables;
+use <db>;
+
+-- general
+show variables[ like '%whatever%';]
+
+
+create table customer (
+     first_name varchar(30) not null,
+     last_name varchar(30) not null,
+     phone varchar(20) not null,
+     street varchar(30) not null,
+     city varchar(30) not null,
+     state varchar(2) not null,
+ zip_code varchar(20) not null,
+ cust_id int not null auto_increment primary key);

@@ -1,0 +1,8 @@
+-> run process in the background and keep it running even when connected shell is closed
+nohup command &
+
+code --list-extensions|sed 's/^/code --install-extension /' > vscode_extensions.sh
+
+gio
+xclip -o > <the file> [overwrite]; xclip -o >> <the file>[append]
+xclip -sel c < <the file>

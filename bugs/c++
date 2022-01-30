@@ -1,0 +1,3 @@
+[error: parenthesized initializer in array new]
+validNeighbours.push_back({allNeighbours[i][0], allNeighbours[i][1]}); validNeighbours=vector<int[2]>, allNeighbours=int[][2]
+use std::array contained in array header(#include <array>)

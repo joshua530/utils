@@ -1,0 +1,7 @@
+-- database
+create database <dbname>;
+\c <dbname>;
+
+-- users
+create user <username> with encrypted password <password>;
+grant[ all privileges|<privileges>] on[database ]<database|table> to <username>;

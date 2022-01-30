@@ -1,0 +1,20 @@
+Array.forEach
+Array.filter
+Array.map
+Array.sort
+Array.reduce
+
+Promise.resolve
+Promise.reject
+Promise.all
+Promise.then
+Promise.catch
+new Promise((resolve,reject)=>{})
+
+async function asyncFuncName(...args){}
+await asyncFuncName()
+
+fetch() returns a promise
+
+for (let x of iterable) -> iterates over items in iterable
+for (let x of iterable) -> iterates over indices of iterable

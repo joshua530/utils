@@ -1,0 +1,43 @@
+permutations; nPk = n!/(n-k)! where n=total number of items; k=number of items to be chosen from the total [ choose without repeating ]
+eg how to seat 5 people in 4 chairs. 5*(5-1)*(5-2)*(5-3)*(5-4)=5!/(5-4)!=120
+ABCD != DBAC in permutations
+
+
+combinations; nCk | (n k) = n!/[k!(n-k)!] {binomial coefficient}
+eg how to find the number of ways to combine 5 people in 4 chairs
+all the ways we can choose 4 people ie 5P4=120
+choose any 4 people and as per combination rules, no matter how you arrange
+these four people, it will still be the same thing
+to eliminate all the extra arrangements and be left with only one way of 
+arranging four people, divide the number of total permutations for the five 
+people by the total number of permutations for each group of four people 
+chosen
+ie 5P4/4! = 120/24 = 5
+which is equivalent to 5!/[4!(5-4!)] = 5
+
+this is where "for permutation, order matters" ie all the possible 
+arrangements for each group of four people chosen matters and "for 
+combination, order doesn't matter" ie for each group of four people chosen,
+no matter how many times we rearrange these people, it will be considered
+one and the same thing
+
+if we have ABCDEF and decide to choose any three letters:
+lets choose ABC
+for permutation, ABC, ACB, BAC, BCA, CAB, CBA matter while for combination,
+they are all one and the same thing ie they are all equivalent to ABC.
+This is why we take all the possible number of permutations divided by all
+the number of possible permutaions for each group of items chosen.
+
+ANOTHER EXAMPLE
+for ABCDEF, choosing any three will result in 120 different permutations
+ie for the 6 letters -> 6*5*4 = 120 | 6!/(6-3)!=120
+for each group of 3 letters chosen, there are 3*2*1 possible arrangements
+ie 3*2*1 = 6 arrangements | 3!/(3-3)! = 6
+To eliminate all the clutter due to the rearrangement of each individual
+group of 3 letters chosen, we divide all the possible permutations by the
+number of permutaions for every group of three elements
+ie 120/6 = 20
+this is the same as n!/[k!(n-k)!) -> 6!/[3!(6-3!)] = 20
+this is how the combination formula comes about
+
+PHEW!!!

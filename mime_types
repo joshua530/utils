@@ -1,0 +1,22 @@
+[audio]
+- audio/mpeg
+- audio/vorbis
+- audio/wave audio/wav
+- audio/webm
+- audio/ogg
+- application/ogg
+[html]
+- text/html
+[javascript]
+- text/javascript
+[json]
+- application/json
+[pdf]
+- application/pdf
+[video]
+- video/webm
+- video/ogg
+- application/ogg
+[xml]
+- application/xml
+

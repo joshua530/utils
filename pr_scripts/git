@@ -1,0 +1,115 @@
+git add -p <file> => add only a portion of the changes from the file
+
+git branch <new branch name>
+git branch -d <branch to delete>
+git branch => list all branches(the current one will be highlighted in green and be identified with an asterisk)
+
+[checkout(switch branches or restore working tree files)]
+git checkout <branch to change to>
+git checkout -b <branch to create and switch to>
+git checkout <commit>
+  => make HEAD point to <commit>. The working tree will be restored to its state at that <commit>. This state is called "detached HEAD"
+     since HEAD is not pointing to the latest commit as it is supposed to. The working tree can then be edited while in the state of
+     <commit>.
+  => if you intend to keep the changes you will make to this previous state, create a new branch, checkout to the branch, checkout to the
+     commit that you intend to make changes to, checkout to the original branch, merge the branch with the changes with the original branch
+     eg if we're on Master
+     	 git checkout <previous_commit> => make HEAD point to previous commit
+     	 git checkout -b tmp => create new branch and change to it(tmp's HEAD will point to <previous_commit>)
+     	 [make changes]
+     	 git commit -am <commit message> => commit the changes made
+     	 git checkout Master => change to previous branch
+     	 git merge tmp => integrate changes with branch
+git checkout <commit> <file> => revert only <file> to version at <commit>, keep the rest of the working tree the same as version at HEAD
+
+git commit => open text editor and add commit message from there
+git commit[ -m<message>] => commit with message
+git commit --amend => open text editor and amend commit message there
+git commit --amend -m<new_message> => amend commit message
+git commit -am <message> => add and commit all untracked files in the current directory
+
+git diff => check difference between 
+git diff [--staged <file>]
+
+git log [ number][ --pretty=format:%<format>]
+git log [ number][ --name-only|name-status|stat] => view file names or changes in the individual files
+git log -p <file> => view all commits that have affected <file>
+
+git merge
+git mergetool - runs the given merge tool to resolve merge any existing merge conflicts(configured using merge.tool setting)
+git merge --abort
+
+git pull --allow-unrelated-histories <origin> <branch>
+
+[rebase(use another branch as the new base for your work)]
+git rebase -i HEAD~<n>
+  => makes HEAD point to the <n>th commit behind HEAD(the current commit). the -i option allows one to interactively choose what
+     will be done to the commits that come after the <n>th commit behind the current one.
+git rebase <branch>
+  => appends <current branch>'s commit history to <branch>, making it appear as if all the commits were made in a 
+     straight line. It looks for the <common ancestor> commit of <current branch> and <branch>, detaches commits of <current branch> since 
+     <common ancestor> from the <current branch>, appends all of <branch>'s commits since <common ancestor> to the <current branch>, then 
+     appends all commits of the <current branch> since <common ancestor> to the now altered <current branch>
+
+git remote -v => view url of remote git repository
+
+git reset[ --soft] <commit id>
+git reset[ --soft] HEAD~<n>
+  => move head pointer back <n> commits, while placing the work from those commits in the stage(if you omit --soft, 
+     the changes in those commits will be discarded and lost forever
+
+git restore[ --staged] <file> => remove file from staging area(the changes made to it will be kept once removed from staging area)
+git restore <file> => discard changes that you made to file
+
+git show <commit id>
+
+git stash
+
+git switch <branch> => switch to <branch>
+git switch -c <branch> => create <branch> and switch to it
+
+
+[HEAD]
+- ref -> a human readable name that references a commit id(it is essentially a pointer to a commit) eg branch names like master,main,dev 
+and tags like v0.1 and v0.2. the commit id that ref points to is dynamic so what ref points to can change over time.
+- when referring to a branch a ref like 'master' or 'dev' points to the tip(most recent commit id) for that branch(refs are stored in 
+.git/refs)
+- head -> a ref that points to the tip(most recent commit) of a branch(.git/refs/heads)
+- refs can point to other refs which resolve to the commit id of the destination ref
+- HEAD - special ref that points to the commit you are currently working on(the currently checked out commit) - .git/HEAD
+
+branches:
+- long running -> exist throughout the lifetime of a project eg main, development. Changes are made to them only via merges
+- short lived -> created for purposes which are short term eg a bug fix, feature... Once integration with a long term branch is done,
+		  these branches are deleted
+
+branching strategies:
+- github flow -> one long lived branch(changes are made to it in the form of commits, not merges)
+- gitflow -> several long branches and short lived branches. Changes to the long running branches are made via merges, not commits
+	  -> once the short running branches have been merges with the long running ones, they are deleted.
+	  
+[be careful with]
+[commands]
+- git read-tree
+[pushing content to remote repository]
+- if you have a new local repository, make all the first changes in it then push them to a clean remote repository to avoid merge 
+conflicts due to unrelated histories between the local and remote repository. The conflict will happen when you try to pull changes from
+the remote repository into the local repository when you have already made changes in both of the repositories
+[extras]
+- don't interrupt a push to remote repo in progress
+
+How a file is added to the repository
+- Working tree/working directory => index/staging area => repository
+- Working tree - directory you are currently working on
+- index - where commits are prepared(lists all files in the current branch, their sha1 checksums, timestamps and the file name
+- repository - hidden .git directory containing all versions of commited files
+
+Merge conflicts
+- Whenever there is a merge conflict:
+    - open the file in your text editor
+    - solve the conflicts
+    - run git add <file>
+    - run git commit <msg>
+
+
+

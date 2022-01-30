@@ -1,0 +1,5 @@
+javac -d ./classes *.java
+jar -cvmf manifest.txt name.jar *.class
+java -jar <path to jar> execute jar
+jar tf <path to jar> view jar file contents
+mvn package - compile maven project to jar [./src/main/java;./src/main/resources;./pom.xml] compiled jar is found in ./target folder

@@ -1,0 +1,66 @@
+General problem solving
+a) always have a plan - it might require changing, constant tweaking or not even work at all but it will give you progress from no solution
+to a final solution. If you’ve run through all the steps on your original plan and you’re still not ready to start coding, then it’s
+time to make another plan.(use diagrams, instruction sequences, charts... whatever you can think of to make your plan feasible)
+b) restate the problem(generically ie in a manner that is not implementation specific[specific to the data structures and libraries you 
+expect to be used] for instance, instead of "How to find a number of students in a linked list" you might state "How to find a number of 
+students efficiently using any data structure." When you do it in this way, you will be able to see the problem from different angles and 
+points of view) Not only should you look outside the box but also find the box > this step is for understanding the problem clearly. If you
+feel that you have a good grasp of the problem, then feel free to move to step c) <
+c) divide the problem - it is much easier to solve a smaller problem than a bigger one. Combine the solutions to the subdivided problems and
+you will have the solution to the whole problem
+d) start with what you know - begin solving subproblems that you are familiar with or that you have the skills to solve. Attempt the ones
+which you are not familiar with later on
+e) reduce/simplify the problem - add or remove constraints to simplify the solution search. Try simplifying how you look at the inputs to 
+the problem to eliminate complex calculations and deductions. eg reducing 3d coordinates to numbers in an array. Make multiple reductions, 
+combine the solutions from these reductions, presto! you have the solution you need
+f) look for analogies - is there a similarity between the problem i'm trying to solve and one that's been solved before? This skill is 
+difficult to develop at first since you need to have solved enough problems for you to have an analogy. This skill becomes honed over time
+as you solve increasingly challenging problems and build your 'mental models' which you can refer to later on
+g) experiment - try solving problems yourself and observe the results. It isn't guessing where you type some code and hope it works.
+Experimenting is a controlled thing. You type in code with various inputs, knowing what the code should do and run it to check whether your
+hypothesis is true. If not, you tweak and try again until you get the solution that you want.(write some throw away code on the side to see
+whether your hypothesis is true[debug when necessary])
+h) don't get frustrated[don't allow yourself to get frustrated] - When you allow yourself to get frustrated, you are, in effect, giving
+yourself an excuse to continue to fail. Take a break when you feel your frustration becoming too much
+
+- These steps don't have any particular order to them, feel free to incorporate any one of them any time you feel you need it. However,
+always remember to work with a plan regardless of how stupid the plan sounds
+
+problem - constraints, solution[a complete algorithm solves the problem while meeting all constraints]
+1. make it work(break it down into parts, solve the parts, combine the solutions to the parts into one big solution, problem solved!)
+2. optimize if necessary
+3.(extra) - always store previous solutions somewhere
+
+** solving by sample case
+
+ To write a function that solves a problem
+-------------------------------------------
+** Write a shell of the function to get the parameters and types straight and tests for the intended code
+** Make a diagram of a test case
+** Write testing code with inputs, a call to the function with the inputs and the expected output
+** Fill out the shell to ensure you get the code straight
+** Test for both average as well as special cases
+** If the code works as expected, copy it to the main code
+** Keep the code for later use and reference
+
+--> shortened
+> shell+test code
+> diagram(pointers)
+> code
+> test(for both average and special cases)
+> refactor
+> store
+
+ After finding a solution:
+---------------------------
+** ensure you comb all possible special cases. A special case is where valid data causes your code to misbehave(special cases mostly revolve
+around the extremes) => Brutally test your code to ensure no errors result from these extreme cases
+** refactor
+** ensure you keep the solution since you might need to refer to it later on when you encounter a similar or 
+somehow similar problem
+
+
+=> take note of problems that keep cropping up from time to time so that you notice patterns in problems that you keep encountering(design
+[general programming] and code[semantics])
+

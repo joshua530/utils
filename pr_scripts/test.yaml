@@ -1,0 +1,64 @@
+# a sample yaml file
+
+# objects
+cow:
+	name: "sally"
+	color: "brown with white patches"
+	height: 2
+	height_units: "metres"
+	male: false
+	calf: null
+	fertility_index: 2e+2
+	litres_per_day: 2.3
+	date_of_birth: 2021-01-12 12:14:22
+	favorite_meals: ['hay','bean stalks','napier'] # list format
+
+dog:
+	name: "sally"
+	color: "white"
+	furry: true
+	gender: 'female'
+	puppies: 2
+	height: 0.22
+	height_units: 'metres'
+	birthday: 2022-11-11 13:22:23
+	puppy_names: # list format 2
+		- bosco
+		- simba
+		
+#objects in lists
+people:
+	- name: 'joe'
+		occupation: 'cop'
+	- name: 'iris'
+		occupation: 'journalist'
+	- {name: 'barry', occupation: 'forensic scientist'}
+	- {name: 'joy', occupation: 'doctor'}
+	
+a_lot_of_text: >- # the following text will be considered as one line
+	Algorithms are the most important and durable part of computer science because
+	they can be studied in a language- and machine-independent way. This means that
+	we need techniques that enable us to compare the eﬃciency of algorithms without
+	implementing them. Our two most important tools are (1) the RAM model of
+	computation and (2) the asymptotic analysis of worst-case complexity.
+preserve_formatting: | # the indentation, tabs and any other formatting will be preserved
+	text
+	more text
+	final text
+
+anchor_this: &anchor "anchor value" # anywhere *anchor is used, the value will match that of anchor_this('anchor value')
+copy_anchor_value: *anchor # contains the value of anchor_this
+
+anchor_object: &object
+	name: 'john'
+	occupation: 'entrepreneur'
+	
+person: # will contain anchor_object's value in addition to any other defined values
+	<<: *object
+	some_extra_value: 'extra value'
+	
+# to typecast, use !!<datatype to cast to> <value to typecast>
+int_to_str: !!str 22 # '22'
+float_to_str: !!str 2.2 # '2.2'
+float_to_int: !!int 2.2 # 2
+int_to_float: !!float 22 # 22.0
