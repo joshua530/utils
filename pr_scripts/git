@@ -33,6 +33,9 @@ git config <setting> <value> => set <setting> to <value>
 
 git diff => check difference between 
 git diff [--staged <file>]
+git diff <local_branch> repo/<remote_branch>
+    => check the difference between the local and remote branch. If there is no message, it means
+       they are the same
 
 git fetch[ <remote_repository>]
     => download objects from <remote_repository> without integrating them into your repository
