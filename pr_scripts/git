@@ -28,8 +28,15 @@ git commit --amend => open text editor and amend commit message there
 git commit --amend -m<new_message> => amend commit message
 git commit -am <message> => add and commit all untracked files in the current directory
 
+git config --get <setting> => get the value of <setting>
+git config <setting> <value> => set <setting> to <value>
+
 git diff => check difference between 
 git diff [--staged <file>]
+
+git fetch[ <remote_repository>]
+    => download objects from <remote_repository> without integrating them into your repository
+       (A safe version of git pull)
 
 git log [ number][ --pretty=format:%<format>]
 git log [ number][ --name-only|name-status|stat] => view file names or changes in the individual files
@@ -39,6 +46,7 @@ git merge
 git mergetool - runs the given merge tool to resolve merge any existing merge conflicts(configured using merge.tool setting)
 git merge --abort
 
+git pull[ <remote_repository>] => downloads objects and refs from <remote_repository> and integrates them into your local repository
 git pull --allow-unrelated-histories <origin> <branch>
 
 [rebase(use another branch as the new base for your work)]
