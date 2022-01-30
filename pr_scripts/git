@@ -53,9 +53,6 @@ git rebase <branch>
 
 git remote -v => view url of remote git repository
 git remote add origin <url> => add url of remote repo and name the ref origin
-git remote -uno
-    => check whether the branch you are tracking is the same in both the local and remote repository
-       if there is no message, the local and remote are the same
 
 git reset[ --soft] <commit id>
 git reset[ --soft] HEAD~<n>
@@ -68,6 +65,11 @@ git restore <file> => discard changes that you made to file
 git show <commit id>
 
 git stash
+
+git status => status of the current working tree
+git status -uno
+    => check whether the branch you are tracking is the same in both the local and remote repository
+       if there is no message, the local and remote are the same
 
 git switch <branch> => switch to <branch>
 git switch -c <branch> => create <branch> and switch to it
