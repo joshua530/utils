@@ -1,3 +1,16 @@
 [error: parenthesized initializer in array new]
 validNeighbours.push_back({allNeighbours[i][0], allNeighbours[i][1]}); validNeighbours=vector<int[2]>, allNeighbours=int[][2]
 use std::array contained in array header(#include <array>)
+
+[warning: address of local variable ‘<array_var>’ returned [-Wreturn-local-addr]]
+create dynamic array in function and return it as in:
+<type> *func() {
+  <type> *foo = new <type>[size];
+  // do something with foo
+  return foo;
+}
+=> remember to free the memory using delete[] to avoid memory leaks
+=> in c, pass in the array as <type>*(maybe use malloc then call free later on???)
+
+[segmentation fault]
+trying to access an inaccessible or non existent memory address
