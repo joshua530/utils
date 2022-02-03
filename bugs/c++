@@ -14,3 +14,6 @@ create dynamic array in function and return it as in:
 
 [segmentation fault]
 trying to access an inaccessible or non existent memory address
+
+[on variables]
+don't use a variable for more than one type in the same scope eg char foo='x'; int foo=3; you will get undefined behaviour
