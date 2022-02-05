@@ -88,3 +88,44 @@ std::string function() const override
 -> virtual <return-type> <function-name>(<parameters>);
 -> when a function is made virtual, c++ determines which function is to be invoked at runtime based on the object pointed to by the base
 class pointer
+
+ vector to array
+-----------------
+vector<type> v;
+// fill vector with data
+type *p = v.data(); or
+type *p = &v[0];
+
+ copy constructible
+--------------------
+copy constructible - a type that can be constructed from a value or reference of the same type
+containers eg vector, std::array can only store items that are copy constructible
+c type arrays are not copy constructible and cannot therefore be stored in c++ containers
+the following code will fail to compile
+std::vector<int[2]> v;
+int x[2] = {1, 2};
+int y[2] = {1, 2};
+v.push_back(x);
+v.push_back(y);
+
+ variadic templates(template<typename... args>)
+----------------------------------------
+-> in this case, the ellipsis is used to signify a parameter pack
+-> if it were to the right of the parameter, it would expand the parameter pack into separate names
+example:
+template<typename... Args> class C;
+we can then use:
+C<> cInstance;   C<int,bool> cInstance2;   C<std::vector<int>, std::string> cInstance3;... and so on
+-> You can also make one or more of the arguments mandatory eg:
+template<typename int, typename... Args> class C; -> this will require you to include int whenever you are using the template definition
+eg C<int>;   C<int, bool, std::string>; ... and so on
+-> You can also use variadic templates with functions eg: template<typename... T> returnType funcName(func args);
+
+ ellipsis operator(returnType funcName(<compulsoryArgs>,...)
+--------------------------------------------------------------
+-> the ellipsis operator signifies that a variable number of arguments will be accepted by the function
+-> one example of a function that uses it is the printf function -> printf(const char *format, ...)
+-> the ... indicate that an undefined number of arguments can be entered after the format 
+eg printf("%s%s%s","abc","def","ghi"); or even printf("") are both valid
+
+
