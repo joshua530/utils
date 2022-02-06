@@ -1,0 +1,18 @@
+say_hello:
+        echo "Hello World"
+
+In the example above, say_hello behaves like a function name, as in any programming language. This is called the target. The prerequisites
+or dependencies follow the target. For the sake of simplicity, we have not defined any prerequisites in this example. The command 
+echo "Hello World" is called the recipe. The recipe uses prerequisites to make a target. The target, prerequisites, and recipes together 
+make a rule.
+
+<target>: <prerequisites/dependencies>
+	<recipe>
+	
+Only the first target in the makefile is the default target. Often called the default goal, this is the reason you will see all as the 
+first target in most projects. It is the responsibility of all to call other targets. We can override this behavior using a special phony
+target called .DEFAULT_GOAL.
+
+.DEFAULT_GOAL := generate(put it at the beginning of the file)
+.PHONY: <prerequisites> => where we define all the targets that are not files. make will run its recipe regardless of whether a file 
+with that name exists or what its last modification time is.
