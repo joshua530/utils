@@ -1,0 +1,17 @@
+[flexbox (content=many:can span multiple lines, items=one line)]
+- justify-content => align content along main axis
+- align-items => align single line flex boxes along cross axis
+- align-content => align multiline flex boxes along cross axis
+=> main axis depends on flex-direction
+- flex-direction => [row,column]
+- flex-wrap => whether flex box will allow content along multiple lines[wrap-allow,nowrap-dont allow]
+- flex-grow: <n> => how the item will grow relative to the other items in the container
+- flex-shrink: <n> => how the item will shrink relative to the other items in the container
+- flex-basis: <size> => sets the initial length of a flexible item. When used with the flex shorthand definition, its value is 0. This
+  means that it will be assigned the default width for elements of its type
+- flex-flow: <direction> <wrap> => shorthand for flex-direction and flex-wrap
+  eg flex-flow: column nowrap; will be equivalent to: flex-direction: column; flex-wrap: nowrap;
+
+[overflow]
+- controls what happens when items don't fit in an element
+- overflow: hidden, scroll, auto, visible
