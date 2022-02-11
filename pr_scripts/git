@@ -22,6 +22,14 @@ git checkout <commit>
      	 git merge tmp => integrate changes with branch
 git checkout <commit> <file> => revert only <file> to version at <commit>, keep the rest of the working tree the same as version at HEAD
 
+git clean => remove untracked files from the working tree
+options:
+    x - remove even ignored files(covered in .gitignore rules)
+    n - dry run. Don't do anything. Just show what would happen
+    d - also remove untracked directories
+    X - remove only files ignored by git
+    f - remove untracked files if clean.requireForce is not set to true
+
 git commit => open text editor and add commit message from there
 git commit[ -m<message>] => commit with message
 git commit --amend => open text editor and amend commit message there
@@ -69,13 +77,22 @@ git reset[ --soft] <commit id>
 git reset[ --soft] HEAD~<n>
   => move head pointer back <n> commits, while placing the work from those commits in the stage(if you omit --soft, 
      the changes in those commits will be discarded and lost forever
+git reset --hard => discard local changes to all files, premanently
 
+[git restore only works with files that are already in the repo(tracked files)]
 git restore[ --staged] <file> => remove file from staging area(the changes made to it will be kept once removed from staging area)
 git restore <file> => discard changes that you made to file
 
 git show <commit id>
 
-git stash
+git stash => save local changes so that you can re-use them later
+git stash show[stash index]
+    => shows changes for latest stash if <stash index> is omitted and for only one stash if <stash index> is given
+git stash pop => returns latest stash's changes to the working tree and deletes the stash
+git stash push[ path] => saves local changes for <path> if path is given and for all files if <path> is omitted
+git stash list => lists all stashes
+git stash drop <stash index> => deletes stash with given <stash index>
+git stash clear => deletes all stashes
 
 git status => status of the current working tree
 git status -uno
