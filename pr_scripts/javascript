@@ -17,4 +17,4 @@ await asyncFuncName()
 fetch() returns a promise
 
 for (let x of iterable) -> iterates over items in iterable
-for (let x of iterable) -> iterates over indices of iterable
+for (let x in iterable) -> iterates over indices of iterable
