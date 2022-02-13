@@ -1,0 +1,6 @@
+[install]
+npm i/install
+npm install [<@scope>/]<name>[@<version range>]
+npm install [<@scope>/]<name>[@<tag>]
+npm install [<@scope>/]<name>[@<version>]
+
