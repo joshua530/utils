@@ -37,7 +37,9 @@ git commit --amend -m<new_message> => amend commit message
 git commit -am <message> => add and commit all untracked files in the current directory
 
 git config --get <setting> => get the value of <setting>
-git config <setting> <value> => set <setting> to <value>
+git config <setting> <value> => set <setting> to <value>(for current project repository)
+git config --global <setting> <value>
+    => set <setting> to <value> for all repositories(provided a given repository has not overriden the setting
 
 git diff => check difference between 
 git diff [--staged <file>]
