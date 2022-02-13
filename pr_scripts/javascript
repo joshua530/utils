@@ -1,8 +1,13 @@
-Array.forEach
-Array.filter
-Array.map
-Array.sort
-Array.reduce
+Array.forEach(function(current)) -> executes function for each element in the array. Does not return anything
+Array.filter(function(current) => bool)
+    -> filters items and returns array of items that make the function return true
+Array.map(function(current)=>any)
+    -> applies function to each element and returns array of values that have been returned by the function
+Array.sort(function(a,b)=>{1,>1,<1})
+    -> by default(without comparative function), it sorts the items as strings
+    -> if function is given, the items are compared two at a time(1=equal, <1=a is less than b, >1=a is greater than b)
+Array.reduce(function(total,current))
+    -> 'reduces' an array to a single value(eg get the total of all items in a numbers array)
 
 Promise.resolve
 Promise.reject
