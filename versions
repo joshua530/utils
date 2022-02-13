@@ -1,0 +1,47 @@
+[version parts]
+a.b.c
+a => major(makes incompatible API changes)
+b => minor(adds functionality in a backwards compatible manner)
+c => patch(makes backward compatible bug fixes)
+
+[the symbols]
+^version -> 'compatible with version' - refuses changes to the major version. eg ^3.2.1 allows values between 3.2.1
+            and 4.0.0, excluding 4.0.0 since it has a different major version
+~version -> 'approximately' - allows for more recent patches, but doesn't accept packages with a different minor 
+            version eg ~2.4.5 allows values between 2.4.5 and 2.5.0, excluding 2.5.5 since it has a different minor
+            version
+=version -> matches exactly the given version
+version -> matches exactly the given version
+version_a - version_b -> include versions between version_a and version_b
+>version
+<version
+<=version
+>=version
+[[ composer ]]
+wildcard(*) -> a.b.*, a.* - any number can be used in place of the wildcard
+space( ) and comma(,) represent logical AND eg >1.0.3 <=2.3.* means version >= 1.0.4 and version <= 2.3.9
+double pipe(||) implies logical OR eg 1.0.6||3.2.5 means version = 1.0.6 or version = 3.2.5
+
+[releases]
+dev(pre-alpha) -> alpha -> beta -> RC(release candidate) -> stable -> end of life
+dev -> not feature complete
+    -> not released to public
+    -> developers are deciding on features
+alpha -> not thoroughly tested
+      -> unstable
+      -> may not contain all features intended for final version
+      -> ends with 'feature freezing' where no more features are added
+beta -> features complete
+     -> may contain bugs(known & unknown)
+     -> released to users for 'usability testing'(beta version)
+RC -> beta that is ready for release unless significant bugs emerge
+   -> well tested via several beta cycles
+stable -> passed all tests
+       -> remaining bugs considered acceptable
+       -> goes to production
+end of life -> deprecated/abandoned/obsolete
+            -> maintainer stops patching/adding new features and may choose to release source code to public domain
+
+
+[stages]
+local->development->staging->production
