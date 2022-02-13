@@ -1,6 +1,7 @@
+sudo npm i -g @vue/cli
 sudo npm i -g serve => a js server(serve -s <folder to serve>)
 npm i json-server => dummy api(stores stuff in json file)
-npm run json-server --watch <json file location>
+npm run json-server --watch <json file location> --port <port number>
 
 sudo npm i -g @vue/cli
 vue ui -> vue graphical ui
