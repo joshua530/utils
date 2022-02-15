@@ -2,3 +2,12 @@ npx create-react-app <app name>
 npm i json-server@^0.16.3
 npm i react-icons@^4.1.0
 npm i react-router-dom@^6.0.2
+
+
+function Component(props) {
+    return (jsx)
+}
+Component.defaultProps = {defaultProps}
+Component.propTypes = {propTypes} // import PropTypes from 'prop-types'
+
+useEffect -> componentDidMount, componentDidUpdate, componentWillUnmount
