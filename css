@@ -1,17 +1,129 @@
-[flexbox (content=many:can span multiple lines, items=one line)]
-- justify-content => align content along main axis
+[variables]
+selector {
+--var: value;
+}
+use :root selector for the variables to apply everywhere
+to use the variable use var(var-name, fallback)
+eg p { color: var(--grey, #fefefe); }
+
+[selectors]
+:root -> matches the root element ie :root {rules}
+
+[flexbox (content=many:can span multiple lines[justify-content,align-content], items=one line[align-items])]
+- justify-content
+    => align content along main axis(for space-<>, extra space is redistributed, so there must be extra
+       space for the components to be realigned   
 - align-items => align single line flex boxes along cross axis
 - align-content => align multiline flex boxes along cross axis
 => main axis depends on flex-direction
-- flex-direction => [row,column]
-- flex-wrap => whether flex box will allow content along multiple lines[wrap-allow,nowrap-dont allow]
+- flex-direction => [row(default),column] (elements are always aligned across the main axis)
+    => main axis directions:
+    => row ---------------->
+    => column |
+              |
+              |
+             \|/
+              v
+    
+- flex-wrap => whether flex box will allow content along multiple lines[wrap - allow,nowrap - dont allow]
 - flex-grow: <n> => how the item will grow relative to the other items in the container
 - flex-shrink: <n> => how the item will shrink relative to the other items in the container
 - flex-basis: <size> => sets the initial length of a flexible item. When used with the flex shorthand definition, its value is 0. This
   means that it will be assigned the default width for elements of its type
 - flex-flow: <direction> <wrap> => shorthand for flex-direction and flex-wrap
   eg flex-flow: column nowrap; will be equivalent to: flex-direction: column; flex-wrap: nowrap;
+- whenever a parent element is transformed into a flexbox container, all the block elements are stretched by
+  default to match the height of the tallest element. this is regulated by the property align-items which has a 
+  default value of stretch. other values are flex-start, flex-end, center, baseline(makes sure the letters in the
+  first line of text sit on the same line)
 
 [overflow]
 - controls what happens when items don't fit in an element
 - overflow: hidden, scroll, auto, visible
+
+[outline(line drawn around elements. It is not part of the element as it is drawn outside the border)]
+outline-width
+outline-style
+outline-color
+outline-offset
+
+[border & outline styles]
+solid, dotted, groove, dashed, ridge, inset, none, hidden, double
+
+[transformation - transform property]
+transform: <3d/2d transform>
+[[2d transforms - transform property]]
+translate(x,y)
+    -> moves the element x units along the x axis and y units along the y axis in relation to it's initial position
+scale(scale factor) -> scale the item along the x and y axis according to the given factor
+scaleX(factor) -> scale item along the x axis
+scaleY(factor) -> scale item along the y axis
+rotate(degrees)
+    -> rotates the item clockwise(+ve degrees) or couterclockwise(-ve degrees). Don't forget to use deg eg 30deg
+skew(degrees) -> skew element along x and y axis by the given degrees
+skewX(degrees) -> skew element along x axis by given degrees
+skewY(degrees) -> skew element along y axis by given degrees
+matrix(scaleX, skewY, skewX, scaleY, translateX, translateY) -> combines the six translation functions
+[[3d transforms]]
+rotateX(degrees) -> rotate element along x axis
+rotateY(degrees) -> rotate element along y axis
+rotateZ(degrees) -> rotate element along z axis
+others:
+    translate3d(x,y,z)
+    matrix3d(4x4 matrix of 16 values)
+    perspective(n)
+    rotateX(angle)
+    rotateY(angle)
+    rotate3d(x,y,z,angle)
+    translateX(x)
+    translateY(y)
+    translateZ(z)
+    scale3d(x,y,z)
+    scaleX(x)
+    scaleY(y)
+    scaleZ(z)
+    
+[units of measurement]
+absolute - px
+percentage - percentage is always relative to the size of an element's parent
+relative - to font sizes - em, rem
+         - to viewport(browser window) - vw, vh, vmin, vmax
+[[ em and rem ]]
+em(relative to parent)
+-> 2em -> two times the font size of the parent element
+-> if the parent element does not have font size set on it, the font size from the nearest parent element is used.
+   This is because font-size is an inheritable property
+-> The effects can be weird if a parent overrides the font size of it's parent. The font size used by nested elements
+   will now be that of the value that overrode the initial one.
+   If the size is overriden several times, the effect will compound.
+-> However, when em is used on any other property other than font-size, the font size that is looked at is that of the
+   current element, not the parent
+-> in general therefore, use rem for font-size and em for things like padding and margin
+rem(relative to the root element(html element))
+         
+[max-width and min-width]
+-> typically used when the width is set to a dynamic value initially to prevent an item from becoming too big or too
+    small
+-> eg
+ element {width: 90%; max-width: 300px;} =>  don't become too big
+ element {width: 20%; min-width: 100px} => don't become too small
+ 
+[media queries]
+-> @media <media type> {...rules}
+-> @media (<media conditions) {...rules} => evaluates to @media all and (<media conditions>) {...rules}
+-> @media (<conditions>) and (<conditions>)...and (<last conditions>) {rules} => combines multiple conditions
+-> @media <media type> and (<media conditions>) {...rules}
+-> media types:
+    - screen => @media screen {}
+    - print => @media print {}
+    - speech => @media speech{}
+-> media conditions:
+    - width: min-width, max-width, width => @media (min-width:800px) {}
+    - orientation: landscape, portrait => @media (orientation:landscape) {}
+    - specific features: hover,focus,active... => @media (hover) {}(apply this only for devices that have the hover
+      event)
+-> both media types and conditions are optional
+-> one of them must however be provided, else we won't have a media query
+-> media queries should always come after the default selectors. If this is not done, the default selectors will
+   override the media queries and the intended effects will not come out.
+-> be as specific as possible so that the effects can be traced back to specific elements
