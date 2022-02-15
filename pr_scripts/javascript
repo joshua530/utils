@@ -12,7 +12,7 @@ Array.reduce(function(total,current))
 Promise.resolve
 Promise.reject
 Promise.all
-Promise.then
+Promise.then(onFulfilled, onRejected)
 Promise.catch
 new Promise((resolve,reject)=>{})
 
@@ -23,3 +23,10 @@ fetch() returns a promise
 
 for (let x of iterable) -> iterates over items in iterable
 for (let x in iterable) -> iterates over indices of iterable
+
+async -> makes a function return a promise
+await -> makes a function wait for a promise
+      -> await can only be used in a function declared using async ie async func(args) {}
+
+import 'module' / import('module')
+    -> just runs module's code for it's side effects without actually bringing in any values from the module
