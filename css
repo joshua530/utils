@@ -9,7 +9,9 @@ eg p { color: var(--grey, #fefefe); }
 [selectors]
 :root -> matches the root element ie :root {rules}
 
-[flexbox (content=many:can span multiple lines[justify-content,align-content], items=one line[align-items])]
+[flexbox]
+#content=many:can span multiple lines[justify-content,align-content]
+#items=one line[align-items]
 - justify-content
     => align content along main axis(for space-<>, extra space is redistributed, so there must be extra
        space for the components to be realigned   
@@ -24,7 +26,10 @@ eg p { color: var(--grey, #fefefe); }
               |
              \|/
               v
-    
+
+- order
+    => dictates the position of the elements. order:1 comes before order:2, order:2 before order:3...
+       (the smaller number comes first)   
 - flex-wrap => whether flex box will allow content along multiple lines[wrap - allow,nowrap - dont allow]
 - flex-grow: <n> => how the item will grow relative to the other items in the container
 - flex-shrink: <n> => how the item will shrink relative to the other items in the container
@@ -108,6 +113,34 @@ rem(relative to the root element(html element))
  element {width: 90%; max-width: 300px;} =>  don't become too big
  element {width: 20%; min-width: 100px} => don't become too small
  
+[font-weight]
+bold - jumps to 700(bold)
+bolder - jumps to the next available font weight. For instance, if you have 300,400,700 weights and your current
+         weight is 300, setting font-weight to bolder will make the font weight to 400
+         
+[object-fit(for fitting images and videos in a given space)]
+-> object-fill: <fill>
+-> fill(default)
+    => ensure the image's height and width exactly match the height and width provided. Aspect ratio will not be
+       maintained if the image's height and width do not exactly match the given dimensions.
+-> cover
+    => ensure the whole space allocated for the image is occupied. The image may be cropped as is or stretched out
+       then cropped to fit in the space. The aspect ratio is maintained
+-> contain
+    => ensure the image fits wholly in the space allocated. The image may be squeezed to fully fit in. The aspect
+       ratio of the image is maintained
+-> scale-down
+    => image is scaled down to the smallest version of none or contain
+-> none
+    => image is not resized
+
+[object-position(dictates how image or video will be positioned in the x and y axis inside its own content box)]
+-> object-position: <x>,<y> | <string indicating position>
+-> position strings:
+    -> left
+    -> right
+    -> center
+ 
 [media queries]
 -> @media <media type> {...rules}
 -> @media (<media conditions) {...rules} => evaluates to @media all and (<media conditions>) {...rules}
@@ -127,3 +160,28 @@ rem(relative to the root element(html element))
 -> media queries should always come after the default selectors. If this is not done, the default selectors will
    override the media queries and the intended effects will not come out.
 -> be as specific as possible so that the effects can be traced back to specific elements
+
+[sections to split css file into]
+general
+    -> will apply to everything(body{}, html{}, :root{}...). The sections below will specialize for each of the
+    elements
+typography -> text,font(color, size, family...)
+layout -> alignment, padding, display, borders...
+
+[rules of thumb]
+-> start with general selectors then specialized ones
+-> media queries should come at the very end and should be as specialized as possible
+-> split your files into sections(general, typography, layout)
+-> do your styling in the same order ie general, typography, layout. The steps are not clearly
+   separate but ensure that it is the order that guides the way you write your styles in general
+-> break down these sections into sub-sections eg navigation, profile, article, footer...
+-> use comments to break down your styles into sections
+-> strive as much as possible to limit the number of classes. Specialize only when you need to, don't create more
+   classes just because you feel lazy.
+-> do things with a mobile first approach(design for small screens first, then add a few other things for the large
+   screens)
+-> avoid negative margins as much as you can(*there are always exceptions*)
+-> when placing margins, check whether the item you are putting the margin on will always be available. If not, use
+   a way that will always ensure there will be a margin even when the items are switched(eg use a margin-bottom)
+-> breakpoints are not device specific. They are layout specific
+
