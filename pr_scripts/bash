@@ -33,3 +33,5 @@ done
 for i in $(seq <start> <stop>); do
   <code>
 done
+
+[snippets]
