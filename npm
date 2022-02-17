@@ -4,3 +4,4 @@ npm install [<@scope>/]<name>[@<version range>]
 npm install [<@scope>/]<name>[@<tag>]
 npm install [<@scope>/]<name>[@<version>]
 
+npm install --save-dev <package[s]>
