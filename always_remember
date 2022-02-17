@@ -1,3 +1,5 @@
 Premature optimization is the root of all evil
 Write tests
 Always work from a plan
+
+Whenever you encounter a bug or something new, record it somewhere for future reference
