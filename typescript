@@ -8,3 +8,179 @@ tsc --watch - watch files in project for changes(tsconfig.json must be present)
 tsc <file>[extension] - compile ts file to js
 tsc --watch <file> - watch file for any changes
 tsc --init - create configuration file
+
+// simple types
+let num: number = 3;
+let firstName: string = 'John';
+let autDetails: object = {
+  token: 'A8jkDESMAhnh4kn3',
+  cookie: 'jnadskion4os4k5nj90',
+  date: '12-02-2022'
+};
+
+// arrays
+let arr: number[] = [1, 2, 3];
+let people: object[] = [
+  { name: 'john', age: 3 },
+  { name: 'sal', age: 5 }
+];
+// array of arrays
+let numbers: number[][] = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+
+// tuple
+let x: [number, string] = [4, 'cow'];
+let y: [string, number][] = [
+  ['lamborghini', 400000],
+  ['ferrari', 300000],
+  ['velar', 200000]
+];
+
+// unions
+let itemName: string | object = 'John Doe';
+itemName = { first: 'John', last: 'Doe' };
+console.log(itemName);
+
+// enums
+enum Grading {
+  Excellent, // assigned 0 by default
+  Good, // will be 1+value of item above it ie 2
+  Fair, // 3
+  Poor // 4
+}
+
+enum Height {
+  Short = 2,
+  Average, // 3
+  Tall // 4
+}
+
+enum PrimaryColors {
+  Red = 'Red',
+  Green = 'Green',
+  Blue = 'Blue'
+}
+
+enum Mixed {
+  First = 'First',
+  Second = 2,
+  Third = 3
+}
+console.log(Grading.Excellent);
+console.log(Height.Tall);
+console.log(PrimaryColors.Green);
+console.log(Mixed.Second);
+
+// Object types
+type User = {
+  age: number;
+  username: string;
+};
+let john: User = { age: 22, username: 'John' }; // clean way
+let mary: { height: number; unit: string } = { height: 1.4, unit: 'metres' }; // messy way
+
+// type assertions
+let foo: any = 3;
+let bar = <number>foo; // we're sure bar is of type number so compiler shouldn't bother deducing it from the assigned to variable
+let baz = foo as number; // baz is of type number
+// whenever infer is used, no compile time errors will be generated
+
+// functions
+// function func(var: <type>,...): <return type> {}
+// if function returns nothing, use void as the return type
+function add(a: number, b: number): number {
+  return a + b;
+}
+// union types
+function doSomething(x: number | string | object): any {
+  return x;
+}
+
+// type
+// the difference between type and interface is that type can be used with primitives and
+// unions while interfaces cannot
+type Person = object; // primitive
+type Name = object | string; // union
+// object
+type Car = {
+  brand: string;
+  color: string;
+  year: number;
+};
+
+// interface
+interface Sofa {
+  color: string;
+  price: number;
+  materials: string[];
+  readonly manufacturer: string; // read only property
+  onHire?: boolean; // optional property
+}
+// interfaces use with functions
+interface MyFunc {
+  (a: string, b: number): any[]; // function func(string, number): string {}
+}
+const n: MyFunc = (a, b) => {
+  return [a, b];
+};
+n('a', 3); // works fine
+// n(1, '3'); // will throw error
+
+// classes
+// interface for the class below
+interface BuildingInterface {
+  plotNumber: string;
+  height: number;
+  buildingDescription(): string;
+}
+class Building implements BuildingInterface {
+  plotNumber: string; // public by default
+  public height: number; // explicitly declared public
+  private privateVar: any; // only accessible within this class
+  protected protectedVar: any; // only accessible within current class and its subclasses
+
+  // runs every time an instance of this class is initialized
+  constructor(height: number, plotNumber: string) {
+    this.height = height;
+    this.plotNumber = plotNumber;
+  }
+
+  buildingDescription(): string {
+    return `${this.plotNumber}-${this.buildingDescription}`;
+  }
+}
+interface SkyScraperInterface {
+  numFloors: number;
+  setNumFloors(floors: number): void;
+}
+// inherit from class & ensure interface requirements are met
+class SkyScraper extends Building implements SkyScraperInterface {
+  numFloors: number;
+  private owner: string;
+  setNumFloors(floors: number) {
+    this.numFloors = floors;
+  }
+  constructor(
+    height: number,
+    plotNumber: string,
+    numFloors: number,
+    owner: string
+  ) {
+    super(height, plotNumber);
+    this.numFloors = numFloors;
+    this.owner = owner;
+  }
+}
+
+// Generics
+// the type is inferred dynamically(like java and c++ template types)
+function generateArray<T>(items: T[], items2: T[]): T[] {
+  return new Array().concat(items, items2);
+}
+
+let items = generateArray([1, 2, 3], [4, 5, 6]);
+let items2 = generateArray(['a', 'b', 'c'], ['a string']);
+
