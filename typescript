@@ -1,0 +1,10 @@
+npm i typescript
+
+[extensions]
+ts, tsc
+
+tsc - compile all ts files in the current directory(tsconfig.json must be present)
+tsc --watch - watch files in project for changes(tsconfig.json must be present)
+tsc <file>[extension] - compile ts file to js
+tsc --watch <file> - watch file for any changes
+tsc --init - create configuration file
