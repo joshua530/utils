@@ -1,4 +1,6 @@
 npx create-react-app <app name>
+npx create-react-app <app name> --template typescript => use typescript instead of js for react application
+
 npm i json-server@^0.16.3
 npm i react-icons@^4.1.0
 npm i react-router-dom@^6.0.2
