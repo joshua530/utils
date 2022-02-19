@@ -2,3 +2,6 @@ npm i -g @angular/cli
 
 ng create <app name>
 ng serve
+ng add <dependency>
+ng generate component <component>
+ng generate service <service>
