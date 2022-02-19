@@ -62,6 +62,9 @@ git merge --abort
 git pull[ <remote_repository>] => downloads objects and refs from <remote_repository> and integrates them into your local repository
 git pull --allow-unrelated-histories <origin> <branch>
 
+git push <remote name> <branch>
+    => can also be used to create a new branch in the remote repository eg git push origin new_feature
+
 [rebase(use another branch as the new base for your work)]
 git rebase -i HEAD~<n>
   => makes HEAD point to the <n>th commit behind HEAD(the current commit). the -i option allows one to interactively choose what
