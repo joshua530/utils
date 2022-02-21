@@ -168,12 +168,6 @@ general
 typography -> text,font(color, size, family...)
 layout -> alignment, padding, display, borders...
 
-[to overlay elements]
--> give the parent element a position of relative, position: relative
--> give the item to move around a position of absolute, position: absolute. It will be positioned absolutely
-   relative to its parent element
--> set top, left, right and bottom as needed
-
 [rules of thumb]
 -> start with general selectors then specialized ones
 -> media queries should come at the very end and should be as specialized as possible
@@ -190,4 +184,15 @@ layout -> alignment, padding, display, borders...
 -> when placing margins, check whether the item you are putting the margin on will always be available. If not, use
    a way that will always ensure there will be a margin even when the items are switched(eg use a margin-bottom)
 -> breakpoints are not device specific. They are layout specific
+
+[extras]
+[[to overlay elements]]
+-> give the parent element a position of relative, position: relative
+-> give the item to move around a position of absolute, position: absolute. It will be positioned absolutely
+   relative to its parent element
+-> set top, left, right and bottom as needed
+[[ to make sure footer stays at the bottom ]]
+-> play around with values
+-> a general guide is to set the footer's parent position to relative, then the footer's position to absolute, then
+   set the footers bottom to zero
 
