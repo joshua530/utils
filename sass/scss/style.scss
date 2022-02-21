@@ -1,0 +1,67 @@
+@import 'config';
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: $light-color;
+  font-family: $font-stack;
+  line-height: 1.6;
+}
+
+.showcase {
+  @include set-background($primary-color);
+  height: 600px;
+
+  a {
+    color: set-text-color($primary-color);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a:hover {
+      color: $secondary-color;
+    }
+
+    li {
+      padding: 15px;
+    }
+
+    ul {
+      display: flex;
+      list-style-type: none;
+    }
+  }
+
+  &-content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+
+      img {
+          width: 50%;
+      }
+
+      h1 {
+          font-size: 50px;
+          line-height: 1.2;
+      }
+  }
+}
+
+@import 'utilities';
+@import 'buttons';
+@import 'mobile';
