@@ -168,6 +168,12 @@ general
 typography -> text,font(color, size, family...)
 layout -> alignment, padding, display, borders...
 
+[to overlay elements]
+-> give the parent element a position of relative, position: relative
+-> give the item to move around a position of absolute, position: absolute. It will be positioned absolutely
+   relative to its parent element
+-> set top, left, right and bottom as needed
+
 [rules of thumb]
 -> start with general selectors then specialized ones
 -> media queries should come at the very end and should be as specialized as possible
