@@ -8,3 +8,9 @@ sed -E ':a; N; s/\s+//g; ta'
 sed -e 'command' -e 'command' => -e is used to separate commands
 
 echo 'name: Mary' | sed -E 's/(name: ).+/\1Jane/' => name: Jane
+
+
+[capture groups]
+sed -E ':p; N; s/([[:punct:]])\s+/\1/g; tp' -i public/users.json
+-i<extension> - replace file. file with extension is created to act as backup in case you made changes you want to
+reverse
