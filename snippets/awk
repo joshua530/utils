@@ -1,0 +1,18 @@
+
+record ----field---field---field----
+record ----field---field---field----
+record = horizontal
+field = vertical
+
+like in databases, a record is a row, and a field is a column of the row
+RS = input record separator(separates the lines)
+ORS = output record separator(character that will split each line in the output)
+FS = input field separator(separates the 'letters' | chunks of each line)
+OFS = output field separator(character that will split each record chunk in the output)
+
+awk 'BEGIN {RS=""} {gsub(/\s+/,""); print $1}'
+gsub(<pattern to substitute>, <substitute with>) - perform global substitution
+$1 - first field. if FS is not given, the default will be "" which means that $1 will be equivalent to the whole
+line by default
+if the number is not given to print, $1 is printed by default
+RS="" means there is no line separator hence the whole input will be taken as a single line

@@ -1,0 +1,11 @@
+[get serial number]
+dmidecode -s system-serial-number(run as root)
+
+[replace all whitespace in a single line]
+sed -E 's/[[:space:]]*//g'
+sed -E 's/\s*//g'
+
+[replace all whitespace in multiple lines]
+sed -E ':a; N; s/\s+//g; ta'
+awk 'BEGIN {RS=""} { gsub(/\s+/,""); print $1 }'
+

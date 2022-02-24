@@ -1,0 +1,10 @@
+sed -E ':a; N; s/\s+//g; ta'
+=> :a - label called a(you can use a multi-lettered label, just make sure there are no spaces in it)
+=> N - append next line into pattern space
+=> s - substitute
+=> g - globally
+=> ta - go to a
+
+sed -e 'command' -e 'command' => -e is used to separate commands
+
+echo 'name: Mary' | sed -E 's/(name: ).+/\1Jane/' => name: Jane

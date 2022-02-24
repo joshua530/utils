@@ -1,0 +1,3 @@
+[module wrapper function]
+(function(exports, require, module, __filename, __dirname){<module's content goes here>})
+- this function is wrapped around a module's content. It enables us to access the given parameters
