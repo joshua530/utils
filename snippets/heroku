@@ -1,0 +1,9 @@
+heroku login
+git init
+git add .
+git commit -m <message>
+heroku create [app name]
+heroku git:remote -a <app name> (set remote heroku repository)
+git push heroku master
+heroku open | go to app url
+
