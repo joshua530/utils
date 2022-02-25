@@ -9,3 +9,8 @@ sed -E 's/\s*//g'
 sed -E ':a; N; s/\s+//g; ta'
 awk 'BEGIN {RS=""} { gsub(/\s+/,""); print $1 }'
 
+[send items to recycle bin using terminal]
+gio trash ...items
+
+[get pid of item using netstat and port number]
+sudo netstat -tupln|grep 5000|rev|cut -d '/' -f 2|cut -d ' ' -f 1|rev
