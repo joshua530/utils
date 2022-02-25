@@ -5,9 +5,12 @@ npm install [<@scope>/]<name>[@<tag>]
 npm install [<@scope>/]<name>[@<version>]
 
 npm install --save-dev <package[s]>
+npm install -D <package[s]>
+
 npm install looks for package.lock.json to install dependencies. If it doesn't find it, it looks for package.json If 
 there is no package.json file in the local directory, the latest version of the package is installed.
 If there is a package.json file, npm installs the latest version that satisfies the semver rule declared in 
 package.json
 
 npm init - initialize npm package directory
+npm init --yes - skip all config options
