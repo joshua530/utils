@@ -1,15 +1,20 @@
 [version parts]
 a.b.c
-a => major(makes incompatible API changes)
+a => major(makes incompatible API changes) - breaking change
 b => minor(adds functionality in a backwards compatible manner)
-c => patch(makes backward compatible bug fixes)
+    - new functionality, deprecates some functionality but apps using previous minor versions will still work
+    - it is a non-breaking change
+c => patch(makes backward compatible bug fixes) - bug fixes
 
 [the symbols]
 ^version -> 'compatible with version' - refuses changes to the major version. eg ^3.2.1 allows values between 3.2.1
             and 4.0.0, excluding 4.0.0 since it has a different major version
+         -> "I only want minor updates"
 ~version -> 'approximately' - allows for more recent patches, but doesn't accept packages with a different minor 
-            version eg ~2.4.5 allows values between 2.4.5 and 2.5.0, excluding 2.5.5 since it has a different minor
-            version
+            version eg ~2.4.5 allows values between 2.4.5 and 2.5.0, excluding 2.5.0 since it has a different minor
+            version.
+            **also ~3.52.60 allows values between 3.52.60 and 3.53.0 excluding 3.53.0**
+         -> "I only want minor updates"
 =version -> matches exactly the given version
 version -> matches exactly the given version
 version_a - version_b -> include versions between version_a and version_b
