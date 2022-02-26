@@ -1,1 +1,10 @@
 javascript regexp does not support posix classes. The likes of [:alnum:], [:punct:], [:alpha:]...
+
+[
+Converting circular structure to JSON
+    --> starting at object with constructor 'Topology'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'topology' closes the circle
+]
+
