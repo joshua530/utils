@@ -1,3 +1,6 @@
-daemon - mongod
-
-mongosh
+- database
+    |-collection
+        |-document
+        
+- does not have strict rules, you can insert any data into a collection as long as it is valid json
+- works a lot like javascript
