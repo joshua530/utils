@@ -1,0 +1,144 @@
+[show all databases]
+show dbs (only shows databases with something in them)
+
+[show collections in database]
+use <database>
+show collections
+
+[delete db]
+use <db>
+db.dropDatabase()
+
+[delete collection]
+use <db>
+db.<collection>.drop()
+
+[create db]
+use <new db> (will create and switch to it)
+
+[show current database]
+db
+
+[create new collection]
+use <db>
+db.createCollection(<collection name>)
+
+[insert single object into a collection]
+use <db>
+db.<collection>.insert(data) - data uses json format
+eg db.people.insert({name: 'John',age:30})
+
+[insert multiple objects into a collection]
+db.<collection>.insertMany(data)
+eg db.people.insertMany([{name:'John',age:30,},{name: 'Jane',age:35},{name: 'Diana',age:22}])
+
+[find all documents]
+db.<collection>.find()[.pretty()] - the optional method is for formatting
+
+[find documents matching certain specifications]
+db.<collection>.find(data) eg db.posts.find({author: 'John Doe'})
+
+[find one document]
+db.<collection>.findOne(<criteria>) eg db.posts.findOne({author: 'John Doe'})
+
+[sort items]
+db.<collection>.find().sort(<criteria>) - criteria is a bson object of {key: asc/desc} asc = 1, desc = -1
+eg db.people.find().sort({age: 1}) - find people and sort them using age in ascending order
+
+[count items in a collection]
+db.<collection>.find().count()
+
+[limit items returned]
+db.<collection>.find().limit(<n>)
+
+[do something for each returned item]
+db.<collection>.find().forEach(function(item){do something})
+eg db.people.find().forEach(function(person) { print('Name: '+person.name+', Age: '+person.age)})
+
+[update an item(it replaces the document with entirely new data)]
+db.<collection>.update(<criteria>,<data to replace with>,<options>)
+eg db.people.update({id: 2},{name:'John Lewis',age:23},{upsert: true}) - document with id of 2 will be completely
+replaced. upsert means update and insert ie if document does not exist, create it, else update it
+
+[update an item(change a field or fields or even add a field that didn't exist initially)]
+db.<collection>.update(<criteria>,{$set:{<fields to update>}},<options>)
+db.people.update({name: 'John'},{$set: {status:'Married',wife:'Mary'}[,{upsert,true}])
+
+[increment a value]
+db.<collection>.update(<criteria>,{$inc:{field: <increment by>}})
+eg db.people.update({name: 'John'},{$inc:{age: 2}}) - increment user's age by 2
+
+[rename a field]
+db.<collection>.update(<criteria>,{$rename:{field:newName}})
+eg db.people.update({name:'John'},{$rename:{child:'children'}})
+
+[delete items matching criteria]
+db.<collection>.remove(<criteria>)
+eg db.people.remove({age:12})
+
+[embedding data(instead of doing joins like in RDBMS)]
+example
+db.posts.insert({
+    id: 1,
+    name: 'John',
+    wife: 'Alice',
+    children: [
+        {
+            name: 'Jay',
+            age: 2,
+            gender: 'Male'
+        },
+        {
+            name: 'Sam',
+            age: 6,
+            gender: 'Female'
+        }
+    ]
+})
+- the children need not be put in another collection, they are put in their related element where they
+can later on be fetched using a query like: db.people.findOne({id:1}).children
+
+[find items using nested elements]
+db.<collection>.find({
+    nestedKey: {
+        $elemMatch: {<criteria}
+    }
+});
+eg: To find all people with a child named Jay:
+db.people.find({
+    children: {
+        $elemMatch: {name: 'Jay'}
+    }
+})
+
+[create index]
+db.<collection>.createIndex({field: <type>}) <type> has preset values, look it up before creating an index
+eg db.people.createIndex({name: 'text'})
+
+[find using index]
+db.<collection>.find(
+    $index: {
+        $search: <value>
+    }
+}
+eg. db.people.find($text: {$search: "\"John D\""})
+
+[greater than]
+db.<collection>.find({<field>: {$gt:<greater than>}})
+eg db.people.find({age: {$gt: 3}}) - find all people with an age > 3
+
+[less than]
+db.<collection>.find({<field>: {$lt: <less than>}})
+
+[less than or equal to, greater than or equal to]
+like greater or less than only:
+less than or equal => $lte
+greater than or equal => $gte
+
+
+
+
+
+
+
+

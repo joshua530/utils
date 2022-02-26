@@ -1,0 +1,73 @@
+// Promise states = pending, fulfilled, rejected
+// a promise is said to be settled when it is either fulfilled or rejected
+
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // resolve('Success');
+    resolve('Error');
+  }, 300);
+});
+myPromise
+  .then(
+    (successMsg) => {
+      console.log('Yaay! everything went well -> ' + successMsg);
+      return new Promise((resolve, reject) => {
+        reject('Rejected');
+      });
+    },
+    (rejectMsg) => console.log(rejectMsg)
+  )
+  .then(
+    (resolveResult) => {
+      console.log(resolveResult);
+    }
+    // reject is optional
+  )
+  .catch((err) => {
+    // the reject call in the first then's resolve handler will be handled here
+    // since it has not been handled in the second then call
+    console.log(err);
+  });
+
+/*
+catch is just an alias for then(null, (error) => {do something concerning error})
+it runs if there is an unhandled rejection somewhere
+
+new Promise((resolve,reject)=>{doSomething})
+.then(
+  resolve(param passed to parent's resolve)=>{},
+  reject(param passed to parent's reject)=>{}
+).catch(err => {
+  handle any rejection that was not explicitly handled
+})
+*/
+
+// promise use with async and wait demonstration
+// await makes a function wait for a promise
+// async makes a function return a promise
+// the code waiting for the promise is called the consuming code
+// the code generating the promise is called the producing code
+// a promise is a javascript object that links producing code and consuming code
+const getName = async () => {
+  const willReturnName = false;
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (willReturnName) resolve('Joshua');
+      else reject('Name cannot be resolved');
+    }, 2000);
+  })
+    .then((name) => name)
+    .catch((err) => {
+      console.log({ Error: err });
+      console.log('Service is currently down, try again later');
+      process.exit(1);
+    });
+};
+
+const printMyName = async () => {
+  const name = await getName();
+  console.log(`My name is ${name}`);
+};
+
+printMyName();
+
