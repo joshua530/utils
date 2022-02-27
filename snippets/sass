@@ -1,0 +1,6 @@
+[loop over items in list]
+@each $var in (items) {
+    // do something
+}
+
+
