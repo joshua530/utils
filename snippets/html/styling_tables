@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table</title>
+  <style>
+    table {
+      /* border-top: 1px solid #000;
+      border-bottom: 1px solid #000; */
+      /* border-radius: 5px; */
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border-collapse: collapse;
+    }
+
+    thead {
+      border-bottom: 1px solid #000;
+      color: #fff;
+      background: green;
+    }
+
+    tr {
+      border-bottom: 1px solid #000;
+    }
+
+    /* tr:hover {
+      background: #fefefe;
+    } */
+    tr:nth-child(even) {
+      background: grey;
+      color: #fff;
+    }
+
+    td {
+      padding: 1px 4px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td>Quantity</td>
+        <td>Product</td>
+        <td>Status</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>dolor</td>
+        <td>amet</td>
+        <td>consectetur</td>
+      </tr>
+      <tr>
+        <td>Dolore</td>
+        <td>nostrum</td>
+        <td>repellat</td>
+      </tr>
+      <tr>
+        <td>cupiditate</td>
+        <td>aliquam</td>
+        <td>voluptas</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+
