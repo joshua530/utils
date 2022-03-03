@@ -8,3 +8,5 @@ Converting circular structure to JSON
     --- property 'topology' closes the circle
 ]
 
+[this is not defined when using rxjs]
+- avoid using this when calling functions inside Observable.pipe
