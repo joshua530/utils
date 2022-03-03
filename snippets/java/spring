@@ -1,0 +1,6 @@
+[fetching an item from the db]
+interface Repo extends JpaRepository<type,id> ...
+@Query("SELECT p FROM Product p WHERE p.name = ?1")(this is a jpa query)
+public Optional<Product> findProductByName(String name);
+
+public Optional<Product> findByName(String name);
