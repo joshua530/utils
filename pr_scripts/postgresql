@@ -4,4 +4,7 @@ create database <dbname>;
 
 -- users
 create user <username> with encrypted password <password>;
-grant[ all privileges|<privileges>] on[database ]<database|table> to <username>;
+grant all[ privileges ][<privileges>] on <database|table> <database|table> to <username>;
+
+[sequences]
+create sequence <sequence> start <start pos> increment <increment num>
