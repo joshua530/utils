@@ -1,0 +1,6 @@
+[get all matches]
+let stringVar = <string>
+stringVar.match(/some regexp/g)
+
+[for checking whether there is a match]
+stringVar.match(/<regexp>/).length !== 0
