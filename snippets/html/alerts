@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head></head>
+<style>
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+  font-family: Ubuntu;
+}
+
+.alerts-container {
+  position: absolute;
+  width: 40%;
+  top: 1em;
+  left: 30%;
+}
+
+.alert {
+  background: #aaa8a8;
+  color: #000;
+  border: 1px solid #fefefe;
+  padding: .5em 1em;;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.close-alert {
+  color: red;
+  display: block;
+  cursor: pointer;
+}
+
+.alert-success {
+  background: #e0ffb0;
+  color: green;
+  border-color: green;
+}
+
+.alert-success .close-alert {
+  color: green;
+}
+
+.alert-info {
+  background: skyblue;
+  color: blue;
+  border-color: blue;
+}
+
+.alert-info .close-alert {
+  color: blue;
+}
+
+.alert-warning {
+  background: #ffffcf;
+  color: orange;
+  border-color: orange;
+}
+
+.alert-warning .close-alert {
+  color: orange;
+}
+
+.alert-danger {
+  background: #fff1eb;
+  color: red;
+  border-color: red;
+}
+
+.alert-danger .close-alert {
+  color: red;
+}
+
+</style>
+<body>
+<div class="alerts-container">
+
+<div class="alert alert-success">
+  <p>Message</p>
+  <p class="close-alert">&times;</p>
+</div>
+<div class="alert alert-warning">
+  <p>Message</p>
+  <p class="close-alert">&times;</p>
+</div>
+<div class="alert alert-info">
+  <p>Message</p>
+  <p class="close-alert">&times;</p>
+</div>
+<div class="alert alert-danger">
+  <p>Message</p>
+  <p class="close-alert">&times;</p>
+</div>
+</div>
+
+<p>
+Some text
+</p>
+
+<script>
+  const alertClosers = document.getElementsByClassName('close-alert');
+  for (let i=0; i<alertClosers.length; ++i) {
+    let current = alertClosers[i];
+    current.addEventListener('click',()=>{
+      current.parentElement.style.display = 'none';
+    })
+  }
+</script>
+</body>
+</html>
