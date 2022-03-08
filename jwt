@@ -1,0 +1,25 @@
+<header>.<payload>.<cryptographic signature>
+
+[header](base64url encoded)
+{
+  "typ": "JWT",<token type>
+  "alg": "HS256"<hashing algorithm used>
+}
+[payload](base64url encoded)(contains claims - statements about the entity,
+                                               typically a user and any additional data.
+                                               each claim is a key in the jwt body.
+                                               There are a number of standard claims called
+                                               registered claims)
+(the claims are not all compulsory)
+{
+  "iss": "http://trustyapp.com",<issuer>
+  "exp": 14634446456,<when the token will expire>
+  "sub": "users/8983462,<subject>
+  "scope": "self api/buy",<custom private claim>
+  "aud" : <audience>,
+  "nbf": <not before>,
+  "iat": <issued at>,
+  "jti": <jwt id>
+}
+[signature](made from encoded header and payload)
+signature=HMACSHA256(base64UrlEncode(header)+'.'+base64UrlEncode(payload),secret)

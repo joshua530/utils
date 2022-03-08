@@ -23,3 +23,12 @@ sudo -u <user> <command>
 
 [get numeric file permissions]
 stat -c '%a' <file>
+
+[create more than one alias simulataneously]
+alias a='command'; b='command'
+
+[temporarily don't use alias value
+\<alias>
+
+[perform arithmetic]
+$((expression)) - spaces in between numbers don't matter

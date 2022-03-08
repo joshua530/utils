@@ -1,0 +1,8 @@
+uniq
+man test
+tr - translate
+printenv - print env vars
+export varname - make a local variable available to subshells / the global scope, depending on where export is used
+dmidecode
+
+$((arithmetic expression)) - for integers, not floats

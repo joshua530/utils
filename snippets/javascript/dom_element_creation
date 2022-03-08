@@ -1,0 +1,21 @@
+addAlert(type: string, message: string): void {
+  let alert = document.createElement('div');
+  alert.className = `alert alert-${type}`;
+
+  let msg = document.createElement('p');
+  msg.innerText = message;
+
+  let closeAlert = document.createElement('p');
+  closeAlert.className = 'close-alert';
+  closeAlert.innerText = '&times';
+
+  alert.appendChild(msg);
+  alert.appendChild(closeAlert);
+  document.getElementById('alerts')?.appendChild(alert);
+
+  // remove the alert after three seconds
+  setTimeout(() => {
+    alert.style.display = 'none';
+  }, 3000);
+}
+

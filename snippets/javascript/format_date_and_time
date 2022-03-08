@@ -1,0 +1,31 @@
+function getCurrentTime(): string {
+    // DD month YYYY H:MM
+    const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    const current: Date = new Date();
+    const year = current.getFullYear();
+    const month = months[current.getMonth()];
+    const day = current.getDate();
+
+    const minutes = current.getMinutes();
+
+    const hour_24 = current.getHours();
+    const modifier = hour_24 > 11 ? 'PM' : 'AM';
+    const hour_12 = hour_24 > 12 ? hour_24 - 12 : hour_24;
+    const hourString = hour_12 < 9 ? `0${hour_12}` : hour_12;
+
+    const timeString = `${day} ${month} ${year} ${hourString}:${minutes} ${modifier}`;
+    return timeString;
+  }

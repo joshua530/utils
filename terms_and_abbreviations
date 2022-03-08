@@ -1,1 +1,13 @@
-CDI - contexts and dependency injection
+=> CDI
+  contexts and dependency injection
+=> Java bean
+  class that encapsulates one or more objects into a single standardized object. It enables reuse of
+  the class without needing to know its implementation details.(serializable,have zero argument constructor, allow 
+  access to properties via getters and setters.
+=> Serialization
+  conversion of an object into a byte stream that can be stored or transported and later on be 
+  restored to the initial object.
+=> url safe
+  a token / string can be used in a url because it carries no meaningful face value
+
+
