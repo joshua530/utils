@@ -1,0 +1,7 @@
+dotnet new webApp -o myWebApp --no-https
+dotnet new console -o myApp
+dotnet [watch ]run
+dotnet new webapp -f net5.0
+dotnet new page --name Pizza --namespace RazorPagesPizza.Pages --output Pages
+dotnet[ <command>] -l
+dotnet -h

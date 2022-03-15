@@ -1,7 +1,8 @@
 uniq
 man test
 tr - translate
-printenv - print env vars
+printenv - print environment vars / global variables
+set - print local and global variables
 export varname - make a local variable available to subshells / the global scope, depending on where export is used
 dmidecode
 

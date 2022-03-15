@@ -1,0 +1,2 @@
+[apply blur]
+filter: blur(2px);

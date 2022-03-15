@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      filter: blur(2px);
+    }
+
+    .modal {
+      filter: none;
+      padding-left: 15px;
+      padding-right: 15px;
+      position: absolute;
+      top: 1em;
+      width: 100%;
+      z-index: 1;
+    }
+
+    form {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    form textarea {
+      height: 10em;
+      outline: none;
+      padding: 0 20px;
+    }
+
+    #close-modal {
+      cursor: pointer;
+      position: relative;
+      top: 1em;
+      font-size: 20px;
+      color: red;
+    }
+  </style>>
+  <title>Modal</title>
+</head>
+<body>
+  <div class="container">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, sequi maiores ratione error animi explicabo quia ea
+      voluptates cum iusto corrupti repudiandae dolores inventore soluta quaerat reiciendis officia voluptatibus
+      similique.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, sequi maiores ratione error animi explicabo quia ea
+      voluptates cum iusto corrupti repudiandae dolores inventore soluta quaerat reiciendis officia voluptatibus
+      similique.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, sequi maiores ratione error animi explicabo quia ea
+      voluptates cum iusto corrupti repudiandae dolores inventore soluta quaerat reiciendis officia voluptatibus
+      similique.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, sequi maiores ratione error animi explicabo quia ea
+      voluptates cum iusto corrupti repudiandae dolores inventore soluta quaerat reiciendis officia voluptatibus
+      similique.
+    </p>
+  </div>
+  <button id="show-modal">
+    click me
+  </button>
+  <div class="modal">
+    <form id="modal-form">
+      <span id="close-modal">&times;</span>
+      <textarea name="" id="" cols="30" rows="20"></textarea>
+      <!-- <input type="text" name="" id=""> -->
+      <button>Click here</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('modal-form').addEventListener('submit', (e) => e.preventDefault())
+
+    let container = document.getElementsByClassName('container')[0]
+    let modal = document.getElementsByClassName('modal')[0]
+    container.addEventListener('click', (e) => {
+      container.style.filter = 'none'
+      modal.style.display = 'none'
+    })
+    let showModal = document.getElementById('show-modal')
+    let hideModal = document.getElementById('close-modal')
+
+    showModal.addEventListener('click', () => {
+      container.style.filter = 'blur(2px)'
+      modal.style.display = 'initial'
+    })
+    hideModal.addEventListener('click', () => {
+      container.style.filter = 'none'
+      modal.style.display = 'none'
+    })
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+setup() {
+  const store = useMainStore();
+
+  store.$onAction(({ name, store, onError, args }) => {
+    console.log(name);
+    console.log(store);
+  });
+  store.$subscribe((mutation, state) => {
+    console.log(mutation.type);
+    console.log(mutation.storeId);
+    console.log(mutation.payload);
+    console.log(state);
+  });
+
+  store.doSomething('abc');
+  return { store };
+}
