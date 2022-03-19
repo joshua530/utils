@@ -107,6 +107,8 @@ git status -uno
 git switch <branch> => switch to <branch>
 git switch -c <branch> => create <branch> and switch to it
 
+[check difference between two branches]
+git log --graph --left-right --cherry-pick --oneline <branch> <branch2>
 
 [HEAD]
 - ref -> a human readable name that references a commit id(it is essentially a pointer to a commit) eg branch names like master,main,dev 
