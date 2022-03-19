@@ -1,0 +1,42 @@
+state comes from reducers
+state is immutable
+
+[action]
+{state: <name>, payload: <data>}
+
+[reducer]
+function(initialState,action) {
+do something...
+return newState
+}
+
+[store]
+createStore({reducers:{<reducers here>}})
+
+[key methods]
+getState(), subscribe(), dispatch(), connect()
+
+[react-redux]
+mapStateToProps - maps redux store state to component props
+mapDispatchToProps
+ - maps redux actions to react props so that the component can send 
+ messages to the store
+
+[mapStateToProps]
+const mapStateToProps = (state) => {
+  return { isAuthenticated: state.isAuthenticated };
+};
+- isAuthenticated will be passed in as a prop and it can be rendered
+  by the component
+
+[mapDispatchToProps]
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deauth: () => dispatch(deauthenticate())
+  }
+}
+- deauth is a function that will be passed as a prop to the component
+- whenever we want to dispatch deauthenticate to the store, all we
+  have to do is call deauth() and the store will have the changes that
+  we intend
+
