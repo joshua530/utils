@@ -1,1 +1,1 @@
-# Programming scripts and notes
+# Programming scripts, snippets and notes
