@@ -62,7 +62,7 @@ replaced. upsert means update and insert ie if document does not exist, create i
 
 [update an item(change a field or fields or even add a field that didn't exist initially)]
 db.<collection>.update(<criteria>,{$set:{<fields to update>}},<options>)
-db.people.update({name: 'John'},{$set: {status:'Married',wife:'Mary'}[,{upsert,true}])
+db.people.update({name: 'John'},{$set: {status:'Married',wife:'Mary'}[,{upsert:true}])
 
 [increment a value]
 db.<collection>.update(<criteria>,{$inc:{field: <increment by>}})

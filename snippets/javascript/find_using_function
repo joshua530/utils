@@ -1,0 +1,3 @@
+index = items.findIndex(item => condition to return index)
+[remove item]
+if (index !== -1) items.splice(index, <num items to remove>)
