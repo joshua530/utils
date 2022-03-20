@@ -1,11 +1,21 @@
-# Get the account ID
+[Get the account ID]
 aws sts get-caller-identity
 
-# Bootstrap the account
+[Bootstrap the account]
 cdk bootstrap aws://ACCOUNT-NUMBER/REGION
 
+[initialize application]
 cdk init app --language typescript
 
+[list available solution stacks]
+aws elasticbeanstalk list-available-solution-stacks
+
+[cloud development kit]
+cdk deploy
+cdk destroy
+
+S3 - Amazon simple storage service
 CDK - cloud development kit
 VPC - virtual private cloud
 STS - security token service
+ARN - amazon resource name
