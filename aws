@@ -1,0 +1,11 @@
+# Get the account ID
+aws sts get-caller-identity
+
+# Bootstrap the account
+cdk bootstrap aws://ACCOUNT-NUMBER/REGION
+
+cdk init app --language typescript
+
+CDK - cloud development kit
+VPC - virtual private cloud
+STS - security token service
