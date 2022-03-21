@@ -32,3 +32,6 @@ alias a='command'; b='command'
 
 [perform arithmetic]
 $((expression)) - spaces in between numbers don't matter
+
+[extract keys from pem file]
+ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
