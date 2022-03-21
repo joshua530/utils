@@ -34,4 +34,4 @@ for i in $(seq <start> <stop>); do
   <code>
 done
 
-[snippets]
+tee - read from standard input and write to standard output and files
