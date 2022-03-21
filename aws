@@ -17,6 +17,10 @@ cdk destroy
 [bootstrap]
 cdk bootstrap aws://503320071170/us-east-1
 
+[view ec2 console]
+aws ec2 get-serial-console-access-status
+aws ec2 enable-serial-console-access[ --region <region>]
+
 AWS - amazon web services
 S3 - Amazon simple storage service
 CDK - cloud development kit
@@ -24,9 +28,25 @@ VPC - virtual private cloud
 STS - security token service
 ARN - amazon resource name
 EC2
- - amazon elastic computing
+ - amazon elastic computing | amazon elastic compute cloud
  - an ec2 instance is a virtual server for running applications on the AWS infrastructure
+EBS
+ - elastic block store | storage
+ - can be attached to amazon ec2 instances and used with amazon relational database service
 Lambda
- - lets one run code for virtually any type of application/backend service without provisioning or managing
- servers. it runs code in response to events(eg http requests) and automatically manages the underlying compute
- resources without needing your input
+ - serverless , event driven computing platform that lets one run code for virtually any type of application/backend
+   service without provisioning or managing servers.
+ - it runs code in response to events(eg http requests) and automatically manages the underlying compute
+   resources without needing your input
+SAM
+ - serverless application model
+ - an open source framework for building serverless applications
+ - provides shorthand syntax t oexpress functions, APIs, databases, and event source mappings
+Elastic beanstalk
+ - a service for deploying and application scaling on aws
+ - it handles deployment, scaling, health monitoring and resource balancing while still allowing you full access to
+   your application
+Stack
+ - a collection of aws resources that are managed together as a unit
+IAM
+ - identity and access management role
