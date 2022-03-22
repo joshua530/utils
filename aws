@@ -21,6 +21,15 @@ cdk bootstrap aws://503320071170/us-east-1
 aws ec2 get-serial-console-access-status
 aws ec2 enable-serial-console-access[ --region <region>]
 
+[get regions]
+aws ec2 describe-regions --query 'Regions[*].RegionName' --output text
+
+[add your own generated ssh key to aws]
+aws ec2 import-key-pair \
+    --region <region> \
+    --key-name <name to give key> \
+    --public-key-material "file://<path to public key file>"
+
 AWS - amazon web services
 S3 - Amazon simple storage service
 CDK - cloud development kit
