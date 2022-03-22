@@ -1,0 +1,15 @@
+#!/bin/bash
+
+npm run build &&
+cp -r dist/{css,js,webfonts} ../backend/src/todo/static &&
+cp dist/index.html ../backend/src/todo/templates &&
+newTemplate=$(
+    echo -e "{% load static %}\n";
+    cat ../backend/src/todo/templates/index.html |
+    sed -E "s#(/css/styles.css)#{% static '\1' %}#g"|  #css
+    sed -E "s#(/js/[a-zA-Z\-]+\.[a-zA-Z0-9]+\.js)#{% static '\1' %}#g" #js
+) &&
+echo $newTemplate > ../backend/src/todo/templates/index.html &&
+sh -c 'cd ../backend &&
+. ./env/bin/activate &&
+python src/manage.py collectstatic --noinput'
