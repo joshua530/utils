@@ -1,0 +1,29 @@
+>>>>>> shell script <<<<<<<<
+#!/bin/bash
+
+JAVA_HOME=/path/to/jvmdir
+WORKDIR=/path/to/app/workdir
+JAVA_OPTIONS=" -Xms256m -Xmx512m -server "
+APP_OPTIONS=" -c /path/to/app.config -d /path/to/datadir "
+
+cd $WORKDIR
+"${JAVA_HOME}/bin/java" $JAVA_OPTIONS -jar javaapp.jar $APP_OPTIONS
+
+
+
+>>>>>>>> service configuration <<<<<<<<<<<<<
+[Unit]
+Description=My Java forking service
+After=syslog.target network.target
+[Service]
+SuccessExitStatus=143
+User=appuser
+Group=appgroup
+
+Type=forking
+
+ExecStart=/path/to/wrapper
+ExecStop=/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target

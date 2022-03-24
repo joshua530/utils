@@ -1,0 +1,19 @@
+a service can be configured as a standalone systemd service file or as a forked process
+
+standalone
+  - all the configurations are done in the service config file and no external shell scripts are run
+  - the direct path to the binary is given to the file
+forked
+  - shell scripts are provided. some configuration is done in the config file, then the path to a given shell
+    script is given to the file as the executable
+
+Directories for saving the files:
+/etc/systemd/system
+/etc/systemd/user
+
+systemctl daemon-reload - force systemd to update its database of enabled services instead of waiting for a reboot
+systemctl enable service
+systemctl start service
+systemctl disable service
+systemctl reload service
+
