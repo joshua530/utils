@@ -1,0 +1,7 @@
+HSTS
+  - http strict transport security
+  - allows web servers to tell browsers / other agents that they should only
+    communicate with the server using https - uses the "Strict-Transport-Security" header.
+  - it is more secure than a 301 redirect in which the first http request before redirection is still vulnerable
+    to man in the middle attacks.
+
