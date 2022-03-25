@@ -8,3 +8,4 @@ public Optional<Product> findByName(String name);
 
 [command line args]
 mvn clean spring-boot:run
+mvn clean spring-boot:build-image
