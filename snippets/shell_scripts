@@ -43,3 +43,7 @@ EOF
 
 [kill background jobs using index]
 kill %<background number>
+
+[upgrade a single package]
+sudo apt install --only-upgrade <package>
+
