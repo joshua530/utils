@@ -40,3 +40,6 @@ ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
 cat << EOF | xargs -I{} sudo apt -y {}
 <inputs>
 EOF
+
+[kill background jobs using index]
+kill %<background number>
