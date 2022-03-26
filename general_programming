@@ -1,1 +1,6 @@
-if you are not sure about something, use it in a test ground to avoid messing up code you have already written
+strong typing
+  - variables have types
+  - types are checked at compile time
+weakly typed
+  - variables don't have types. Values are the ones that do
+  - types are checked at runtime
