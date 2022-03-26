@@ -1,0 +1,98 @@
+LINQ - language integrated query
+  - provides language level querying abilities, thus enabling one to use the application with multiple
+    dbms systems, apis(xml,json) etc
+    
+[basic LINQ example]    
+var x = from p in programmers
+        where p.IsDotNetProgrammer
+        select new DotNetProgrammer(p);
+[similar example using the IEnumerable<T> api]
+var x = programmers.Where(p => p.IsDotNetProgrammer)
+        .Select(p => new DotNetProgrammer(p));
+        
+[get dictionary]
+var pets = from p in pets
+           where p.IsCat
+           select p;
+#### where pet.RFID is an integer ####
+var petLookup = pets.ToDictionary(pet => pet.RFID)
+  - returns dictionary of the form: Dictionary<int, Pet>
+  
+[xml elements with certain attribute value]
+public static IEnumerable<XElement> FindAllElementsWithAttribute(XElement documentRoot, string elementName,
+                                           string attributeName, string value)
+{
+    return from el in documentRoot.Elements(elementName)
+           where (string)el.Element(attributeName) == value
+           select el;
+}
+could be used to parse:
+<?xml version="1.0" encoding="utf-8" ?>
+<documentroot>
+  <element attr="value" attr2="value">
+    ...
+  </element>
+  <element attr="value2" attr2="value2">
+    ...
+  </element>
+</documentroot>
+
+[using conditions]
+var x = from dog in dogs
+        where dog.Breed == DogBreed.GermanShepherd
+        select dog;
+var x = dogs.Where(dog => dog.Breed == DogBreed.GermanShepherd);
+
+[map list from one type to another]
+var dogCats = from dog in dogs
+              select dog.TurnToCat();
+var dogCats = dogs.Select(dog => dog.TurnToCat());
+
+[sum length of a set of strings]
+int seed = 0;
+int totalLen = strings.Aggregate(seed, (s1, s2) => s1.length + s2.length);
+
+[flatten a list]
+var productsFromAllStands = stands.SelectMany(stand => stand.Products);
+
+[union between two sets]
+class ProductComparer: IEqualityComparer<Product> {
+  public bool Equals(Product p1, Product p2) {
+    if (p1 == null && p2 == null ) { return true; }
+    if (p1 != null && p2 == null || p1 != null && p2 == null) { return false; }
+    return p1.Price == p2.Price;
+  }
+  public int GetHashCode(Product p) { return p.getHashCode(); }
+}
+var equallyPricedProducts = Stand1.Products.Union(Stand2.Products, new ProductComparer());
+
+[intersection between two sets]
+// Gets the volunteers who spend share time with two humane societies.
+var volunteers = humaneSociety1.Volunteers.Intersect(humaneSociety2.Volunteers,
+                                                     new VolunteerTimeComparer());
+[order items]
+// order people by number of family members while ensuring the age is greater than 30
+var people = peopleList.Get(p => p.shouldBeRanked())
+                                  .OrderBy(p => p.age >= 30)
+                                  .ThenBy(p => p.FamilyMembers);
+                                  
+[more advanced query]
+var unequalProperties = from property in typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                        where !ignore.Contains(property.Name)
+                        let selfValue = property.GetValue(self, null)
+                        let toValue = property.GetValue(to, null)
+                        where !Equals(selfValue, toValue)
+                        select property;
+
+[plinq]
+public static string GetAllFacebookUserLikesMessage(IEnumerable<FacebookUser> facebookUsers)
+{
+    var seed = default(UInt64);
+
+    Func<UInt64, UInt64, UInt64> threadAccumulator = (t1, t2) => t1 + t2;
+    Func<UInt64, UInt64, UInt64> threadResultAccumulator = (t1, t2) => t1 + t2;
+    Func<Uint64, string> resultSelector = total => $"Facebook has {total} likes!";
+
+    return facebookUsers.AsParallel()
+                        .Aggregate(seed, threadAccumulator, threadResultAccumulator, resultSelector);
+}

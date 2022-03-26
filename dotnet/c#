@@ -1,0 +1,23 @@
+CLR - common language runtime(the runtime environment of the dotnet framework)
+EF - entity framework(ORM mapper)
+POCO - plain old CLR objects
+
+- partial class
+  - a class that is split into multiple sections.
+  - all the sections are compiled into one class eventually
+  - these sections must be defined in the same namespace
+  - should have the same accessibility
+  - syntax => public partial class <classname> { <class body> }
+
+- static class
+  - a class that cannot be instantiated
+  - can only contain static data members(static methods, static constructors, static properties)
+
+- using directive
+  - defines a context for an object, outside of which, the object is automatically destroyed
+  - using (object=Object()) { context }
+
+- namespace - container for related classes
+- assembly - container for related namespaces(compiled to DLL or exe)
+- nameof(item) - returns the name of a variable, type or member as a string
+
