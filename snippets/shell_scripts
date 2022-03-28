@@ -47,3 +47,5 @@ kill %<background number>
 [upgrade a single package]
 sudo apt install --only-upgrade <package>
 
+[force systemctl reload]
+systemctl daemon-reload
