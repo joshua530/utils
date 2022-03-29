@@ -49,3 +49,12 @@ sudo apt install --only-upgrade <package>
 
 [force systemctl reload]
 systemctl daemon-reload
+
+[batch rename files]
+for file in ./*.ts; do
+ new_file=$(echo "$file" | rev | cut -d'.' -f2- | rev).mpg
+ mv "$file" "$new_file" 
+done
+
+
+
