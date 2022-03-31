@@ -1,0 +1,12 @@
+[class library]
+dotnet new sln - add new solution file 
+dotnet new classlib -o StringLibrary - create new class library
+dotnet sln add <path to csproject file> - add project to solution file
+dotnet build - build project
+
+[unit tests]
+dotnet new mstest -o StringLibraryTest
+dotnet sln add StringLibraryTest/StringLibraryTest.csproj
+dotnet new console -o ShowCase
+dotnet sln add ShowCase/ShowCase.csproj
+
