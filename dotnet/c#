@@ -20,4 +20,8 @@ POCO - plain old CLR objects
 - namespace - container for related classes
 - assembly - container for related namespaces(compiled to DLL or exe)
 - nameof(item) - returns the name of a variable, type or member as a string
-
+- sln file
+  - used for organizing projects in visual studio
+  - it acts as a container for one or more projects
+  - contains information about the project environment and project state
+  - preSolution, project and postSolution information is read from this file
