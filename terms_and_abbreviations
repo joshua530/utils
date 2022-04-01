@@ -9,5 +9,5 @@
   restored to the initial object.
 => url safe
   a token / string can be used in a url because it carries no meaningful face value
-
-
+=> PRF
+  pseudorandom family

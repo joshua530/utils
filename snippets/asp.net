@@ -1,12 +1,45 @@
+[create]
+[sln file]
+dotnet new sln
+[test project]
+dotnet new mstest -o <test project name>
+[console project]
+dotnet new console -o <console project name>
+[class library]
+dotnet new classlib -o <class library name>
+
+[add project to sln file]
+dotnet sln add <path to csproj file>
+
+[add project reference]
+dotnet add <project that needs reference csproj file> reference <project to be references csproj file>
+
+[add nuget package]
+dotnet add package <nuget package>
+
+[restore project]
+dotnet restore - run this command in the root of the project
+
+[run tests]
+dotnet test <path to test csproj file>
+
+
+
 [class library]
 dotnet new sln - add new solution file 
 dotnet new classlib -o StringLibrary - create new class library
 dotnet sln add <path to csproject file> - add project to solution file
 dotnet build - build project
 
+[console project]
+dotnet new console -o ShowCase - new console project
+dotnet sln add ShowCase/ShowCase.csproj - add console project to sln file
+dotnet add ShowCase/ShowCase.csproj reference StringLibrary/StringLibrary.csproj
+  - give console project access to StringLibrary project
+dotnet run --project ShowCase/ShowCase.csproj - run console project
+
 [unit tests]
-dotnet new mstest -o StringLibraryTest
-dotnet sln add StringLibraryTest/StringLibraryTest.csproj
-dotnet new console -o ShowCase
-dotnet sln add ShowCase/ShowCase.csproj
+dotnet new mstest -o StringLibraryTest - new test project
+dotnet sln add StringLibraryTest/StringLibraryTest.csproj - add test project to sln file
+
 

@@ -25,3 +25,13 @@ POCO - plain old CLR objects
   - it acts as a container for one or more projects
   - contains information about the project environment and project state
   - preSolution, project and postSolution information is read from this file
+  
+- extension method
+  - 'adds' some features to a data type
+  - eg public static string AddComma(this string theString) { return theString + ','; }
+  - the extension method must be defined in a static class
+  - the method above will add 'AddComma' to the string data type. It will 'extend' the string data type and
+    add some features to it
+  - whenever there is access to the method, we can call SomeString.AddComma() and a string with a comma appended
+    will be returned
+    

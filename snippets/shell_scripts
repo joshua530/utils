@@ -56,5 +56,13 @@ for file in ./*.ts; do
  mv "$file" "$new_file" 
 done
 
+[check whether command exists]
+if [ $(command -v <command> 2>/dev/null) ]; then
+  // do something
+fi
+or
+if [ ! $(command -v <command> 2>/dev/null) ]; then
+  // not installed message
+fi
 
 
