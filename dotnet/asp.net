@@ -48,3 +48,15 @@ dotnet add package Microsoft.EntityFrameworkCore
 
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+
+[identity application]
+dotnet new webapp --auth Individual -o WebApp1 -> sqlite
+dotnet new webapp --auth Individual -uld -o WebApp1 -> localdb
+
+[installing code generator as a package]
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+[generate identity files using code generator]
+dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.RegisterConfirmation"
+dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.RegisterConfirmation" --useSqLite | -sqlite
+
