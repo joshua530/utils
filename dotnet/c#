@@ -1,7 +1,7 @@
 CLR - common language runtime(the runtime environment of the dotnet framework)
 EF - entity framework(ORM mapper)
 POCO - plain old CLR objects
-OWING - open web interface
+OWIN - open web interface
 
 - partial class
   - a class that is split into multiple sections.
