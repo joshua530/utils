@@ -22,7 +22,14 @@ git checkout <commit>
      	 git commit -am <commit message> => commit the changes made
      	 git checkout Master => change to previous branch
      	 git merge tmp => integrate changes with branch
-git checkout <commit> <file> => revert only <file> to version at <commit>, keep the rest of the working tree the same as version at HEAD
+git checkout <commit> <file>
+  => revert only <file> to version at <commit>, keep the rest of the working tree the same as version at HEAD
+=> to add untracked changes to a new branch and remove them from the branch you are currently working on:
+  git checkout -b <new branch>
+  git add <changes>
+  git commit -m <message>
+  git checkout <previous branch>
+  git merge <new branch>
 
 git clean => remove untracked files from the working tree
 options:
