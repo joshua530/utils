@@ -56,12 +56,132 @@ dotnet new webapp --auth Individual -uld -o WebApp1 -> localdb
 [installing code generator as a package]
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
+[scaffold identity]
+dotnet aspnet-codegenerator identity --useDefaultUI
+dotnet aspnet-codegenerator identity -dc IdentityDataContext --useDefaultUI
+=> use --files "<files>" option if the db context being used exists
+=> to use a db context that already exists, give the full name(including the namespace)
+=> if --files or --useDefaultUI is not used, all available identity templates will be generated
+
 [generate identity files using code generator]
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.RegisterConfirmation"
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.RegisterConfirmation" --useSqLite | -sqlite
+
+[add sqlserver package]
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
 [params]
 --auth Individual
 -sqlite
 -o <name>
+
+[Identity pieces]
+=> Identity - asp.net's user management library. Comprises of:
+- User
+  => contains basic authentication details
+  => is captured by IdentityUser class which can be extended in order to use its functionality
+- Role
+  => represents a user role eg Admin, BasicUser, SuperUser...
+  => basic role is captured by IdentityRole which can be extended to customize roles as needed
+- User manager
+  => for managing users
+  => enables execution of tasks like user addition, removal, deactivation, change of roles, change of [pass]words...
+  => UserManager class comes packed with this functionality
+- Role manager
+  => for managing roles
+  => allows us to create and remove roles and also check whether roles exist
+  => RoleManager comes with this functionality
+- User store
+  => ensures users and roles are persisted
+- Authentication manager
+  => manages signing in and out(cookie based)
+  => IAuthenticationManager interface comes with this functionality
+- Entity framework DbContext
+  => the database context used by ef for user management
+  
+[authentication using identity for views]
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+[Authorize] {controller level}
+class ControllerClass
+{
+  [Authorize] {action level}
+  public IActionResult Method()
+  {
+  }
+}
+
+[using roles for authorization]
+-> [Authorize(Roles = "Role,Role2")] - use multiple roles
+
+[policies]
+-> sometimes, roles can be too many and as a result become difficult to use for authorization
+-> eg insead of Admin, we could have UseAdmin, GroupAdmin, StaffAdmin... which could become overwhelming when
+used for authorization
+-> instead of doing this, we could use policies for authorization
+-> a policy based authorization model consists of:
+  - policies(one or more requirements)
+  - requirements(roles, properties of IdentityUser)
+  - handlers
+
+[using policies for authentication]
+[building a policy using roles]
+eg.
+var policy = new AuthorizationPolicyBuilder()
+  .RequireAuthenticatedUser()
+  .RequireRole("Admin")
+  .Build();
+or at application startup
+services.AddMvc(obj =>
+  {
+      var policy = new AuthorizationPolicyBuilder()
+          .RequireAuthenticatedUser()
+          .Build();
+      obj.Filters.Add(new AuthorizeFilter(policy));
+  });
+[building a policy using claims]
+=> claim - a key pair value that is based on fields present in identity objects
+public void ConfigureServices(IServiceCollection services)  
+{  
+    services.AddMvc().SetCompatibilityVersion(
+          CompatibilityVersion.Version_2_1);
+    services.AddAuthorization(options =>
+    {  
+        options.AddPolicy("CustomSecurityPolicy", policy => 
+             policy.RequireClaim("ShouldBeOnlyEmployee"));  
+        // or chain multiple claims(this is the whole purpose of a policy over a role)
+        options.AddPolicy("UniquePolicy", policy => 
+             policy.RequireClaim("IsAdmin", "true")
+                   .RequireClaim("IsOnLeave")
+                   .RequireClaim("DaysToPasswordExpiry", 2));  
+    });  
+}
+
+[injecting the policy into the application]
+using Microsoft.Extensions.DependencyInjection;
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc();
+    services.AddAuthorization(options =>
+    {
+        // single role for policy
+        options.AddPolicy("RequireManagerOnly", policy => 
+               policy.RequireRole("Manager"));
+        // multiple roles for a policy
+        options.AddPolicy("RequireManagerAndDirector", policy =>
+               policy.RequireRole("Manager","Director"));
+    });
+}
+
+[Using the policy in a controller / action]
+[Authorize(Policy = "RequireManagerAndDirector")]{controller level}
+class Controller
+{
+  [Authorize(Policy = "RequireManagerOnly")]{action level}
+  public IActionResult ActionMethod()
+  {
+    // do something
+  }
+}
+
 
