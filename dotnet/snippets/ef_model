@@ -187,7 +187,9 @@ namespace ContosoUniversity.Migrations
         {
             AutomaticMigrationsEnabled = false;
         }
-
+        
+        // This method is called when the database is created and every time
+        // the database schema is updated after a data model change.
         protected override void Seed(SchoolContext context)
         {
             // add the objects you need to add here

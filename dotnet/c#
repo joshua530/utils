@@ -13,6 +13,10 @@ OWIN - open web interface
 - static class
   - a class that cannot be instantiated
   - can only contain static data members(static methods, static constructors, static properties)
+- sealed class
+  - cannot be extended
+- internal class
+  - only accessible within the same assembly
 
 - using directive
   - defines a context for an object, outside of which, the object is automatically destroyed
