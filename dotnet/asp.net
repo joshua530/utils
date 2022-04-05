@@ -98,7 +98,27 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
   => IAuthenticationManager interface comes with this functionality
 - Entity framework DbContext
   => the database context used by ef for user management
+- Role
+- UserClaim
+  => claim associated with a user
+- UserRole
+  => a role associated with a user
+- UserToken
+  => authentication token associated with a user
+- UserLogin
+  => associates a login with a user
+- RoleClaim
+  => associates a claim with users that have a certain role
   
+[Identity CLR classes(should be extended instead of being used directly)]
+- IdentityUser
+- IdentityRole
+- IdentityUserToken
+- IdentityUserClaim
+- IdentityUserLogin
+- IdentityUserRole
+- IdentityRoleClaim
+
 [authentication using identity for views]
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -121,7 +141,7 @@ used for authorization
 -> instead of doing this, we could use policies for authorization
 -> a policy based authorization model consists of:
   - policies(one or more requirements)
-  - requirements(roles, properties of IdentityUser)
+  - requirements(roles, claims of IdentityUser)
   - handlers
 
 [using policies for authentication]

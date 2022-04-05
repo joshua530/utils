@@ -1,0 +1,205 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ContosoUniversity.Models
+{
+
+    // a navigation property allows navigation of an association between two entities
+    // it is an optional property
+    // if a navigation property will hold more than one item, it must implement the ICollection interface
+    // place the ForeignKey attribute in the dependent class in case two entities have a one-to-zero-or-one relationship
+    public class Student
+    {
+        public int Id { get; set; }
+
+        [StringLength(50, MinimumLength = 2)]
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters")]
+        [Column("FirstName")]
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstMidName { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Enrollment Date")]
+        public DateTime EnrollmentDate { get; set; }
+
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return FirstMidName + ", " + LastName;
+            }
+        }
+
+        public virtual ICollection<Enrollment> Enrollments { get; set; } // navigation property
+    }
+
+    public class Instructor
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name"), StringLength(50)]
+        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 2), Display(Name = "First Name")]
+        public string FirstMidName;
+
+        [Required]
+        [DataType(DataType.Date), Display(Name = "Hire Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = false)]
+        public DateTime HireDate { get; set; }
+
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return FirstMidName + ", " + LastName;
+            }
+        }
+
+        public virtual ICollection<Course> Courses { get; set; } // navigation property
+        public virtual OfficeAssignment OfficeAssignment { get; set; } // navigation property
+    }
+
+    public class OfficeAssignment
+    {
+        [Key]
+        [ForeignKey("Instructor")]
+        // an office assignment can only exist if an instructor is assigned to it
+        // one-to-zero-or-one relationship
+        public int InstructorId { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Office Location")]
+        public string Location { get; set; }
+
+        public virtual Instructor Instructor { get; set; } // navigation property
+    }
+
+    public class Course
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Number")]
+        public int CourseId { get; set; }
+
+        [StringLength(50, MinimumLength = 3)]
+        public string Title { get; set; }
+
+        [Range(0, 5)]
+        public int Credits { get; set; }
+
+        public int DepartmentId { get; set; } // foreign key
+
+        public virtual Department Department { get; set; } // navigation property
+        public virtual ICollection<Enrollment> Enrollments { get; set; } // nav property
+        public virtual ICollection<Instructor> Instructors { get; set; } // nav property
+    }
+
+
+    public class Department
+    {
+        public int DepartmentId { get; set; }
+
+        [StringLength(50, MinimumLength = 3)]
+        public string Name { get; set; }
+
+        [Column(TypeName = "money")]
+        [DataType(DataType.Currency)]
+        public decimal Budget { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Start Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime StartDate { get; set; }
+
+        public int? InstructorId { get; set; } // foreign key
+
+        public virtual Instructor Administrator { get; set; } // nav property
+        public virtual ICollection<Course> Courses { get; set; } // nav property
+    }
+
+    public enum Grade
+    {
+        A, B, C, D, F
+    }
+
+    public class Enrollment
+    {
+
+        public int EnrollmentId { get; set; }
+        public int CourseId { get; set; } // foreign key
+        public int StudentId { get; set; } // foreign key
+
+        [DisplayFormat(NullDisplayText = "No grade")]
+        public Grade? Grade { get; set; }
+
+        public virtual Course Course { get; set; } // navigation property
+        public virtual Student Student { get; set; } // navigation property
+    }
+
+
+// SchoolContext.cs
+using ContosoUniversity.Models;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace ContosoUniversity.DAL
+    {
+        public class SchoolContext : DbContext
+        {
+            public DbSet<Course> Courses { get; set; }
+            public DbSet<Department> Departments { get; set; }
+            public DbSet<Enrollment> Enrollments { get; set; }
+            public DbSet<Instructor> Instructors { get; set; }
+            public DbSet<Student> Students { get; set; }
+            public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+
+            protected override void OnModelCreating(DbModelBuilder modelBuilder)
+            {
+                modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+                modelBuilder.Entity<Course>()
+                    .HasMany(c => c.Instructors).WithMany(i => i.Courses)
+                    .Map(t => t.MapLeftKey("CourseID")
+                        .MapRightKey("InstructorID")
+                        .ToTable("CourseInstructor"));
+            }
+        }
+    }
+}
+
+// Migrations/Configuration.cs
+namespace ContosoUniversity.Migrations
+{
+    internal sealed class Configuration : DbMigrationsConfiguration<SchoolContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+
+        protected override void Seed(SchoolContext context)
+        {
+            // add the objects you need to add here
+            context.Objects.Add(Object);
+            // or
+            foreach (Obj in ListOfObjects)
+            {
+                context.Objects.Add(Obj);
+            }
+            // then to save everything
+            context.SaveChanges();
+        }
+    }
+}
+
