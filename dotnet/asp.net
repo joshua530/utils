@@ -35,6 +35,15 @@ dotnet remove package <name>
 dotnet restore - restore with reference to the current directory
 dotnet restore <path to csproj file> - restore project with reference to the given file
 
+[add sln]
+dotnet sln
+
+[add project to sln]
+dotnet sln add <csproj file path>
+
+[add project reference]
+dotnet add reference <csproj file path>
+
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
