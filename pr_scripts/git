@@ -75,6 +75,8 @@ git push <remote name> <branch>
     => can also be used to create a new branch in the remote repository eg git push origin new_feature
 git push origin --delete <branch to delete>
     => delete the upstream branch
+git push -u <origin> <branch>
+    => set upstream branch
 
 [rebase(use another branch as the new base for your work)]
 git rebase -i HEAD~<n>
