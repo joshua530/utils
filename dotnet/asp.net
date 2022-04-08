@@ -15,6 +15,10 @@ dotnet new page --name Pizza --namespace RazorPagesPizza.Pages --output Pages
 dotnet[ <command>] -l
 dotnet -h
 
+[user secrets]
+dotnet user-secrets init
+dotnet user-secrets set <key> <value>
+
 [general form for packages]
 dotnet [extension/package/command] command args
 or add path to given binaries to $PATH
