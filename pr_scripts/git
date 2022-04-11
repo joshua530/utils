@@ -120,6 +120,32 @@ git status -uno
 git switch <branch> => switch to <branch>
 git switch -c <branch> => create <branch> and switch to it
 
+git tag <tagname> => create a tag
+git tag -a <tagname> => create an annotation(text editor will open)
+git tag -a <tagname> -m <message>
+  => create annotation with the given message. The text editor will not open in this case
+git tag <tagname> -lw => create a lightweight tag
+git tag => list tags
+git tag -l <expression> => list tags matching given expression
+git tag -a <tag> <commit ref> => annotate the commit ref
+git tag -af <tag> <commit ref> => update an already existing tag
+git push origin <tag> => push tag to remote repository
+git push origin --tags <tag> <tag2>... => push multiple tags to remote repository
+git checkout <tag> => checkout a tag
+git tag -d <tag> => delete a tag
+
+[tags]
+- tag - a ref that points to a specific point in commit history, that is used for a marked version release
+  eg v1.1.3
+- a tag does not change, after being created, it's history of commits does not change any further
+- tags are of two types: annotated(more detailed) and lightweight
+- annotated may contain tagger's name, tag message, version number and email of tagger
+- lighweight contain only version number
+- practice:
+  - annotated for public use
+  - lightweight for private use(as quick links to various points in commit history)
+- annotated tags can be signed and verified using GPG
+
 [git log alias](~/.gitconfig)
 [alias]
 lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
