@@ -133,6 +133,7 @@ git push origin <tag> => push tag to remote repository
 git push origin --tags <tag> <tag2>... => push multiple tags to remote repository
 git checkout <tag> => checkout a tag
 git tag -d <tag> => delete a tag
+git tag -n <tag => show tag details
 
 [tags]
 - tag - a ref that points to a specific point in commit history, that is used for a marked version release
