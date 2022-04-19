@@ -70,6 +70,12 @@ git merge --abort
 
 git pull[ <remote_repository>] => downloads objects and refs from <remote_repository> and integrates them into your local repository
 git pull --allow-unrelated-histories <origin> <branch>
+git pull --rebase origin <branch>
+  => pull remote changes and move local changes to the tip of the remote branch after synchronizing it locally
+     ie add all changes made to the remote branch that are not present in the local branch to the equivalent
+     local branch, then append all changes made locally that are not present in the remote branch to the now
+     updated local branch
+  => do this to avoid a superfluous merge commit and just append the commits to one another
 
 git push <remote name> <branch>
     => can also be used to create a new branch in the remote repository eg git push origin new_feature
@@ -87,6 +93,15 @@ git rebase <branch>
      straight line. It looks for the <common ancestor> commit of <current branch> and <branch>, detaches commits of <current branch> since 
      <common ancestor> from the <current branch>, appends all of <branch>'s commits since <common ancestor> to the <current branch>, then 
      appends all commits of the <current branch> since <common ancestor> to the now altered <current branch>
+git rebase --abort
+  => quit a rebase and go back to where you were before starting the rebase
+git rebase --continue
+  => continue rebasing after solving a merge conflict like so:
+    git pull --rebase origin <branch>
+    // some conflict happened
+    // resolve the conflict in <some-file>
+    git add <some-file>
+    git rebase --continue
 
 git remote -v => view url of remote git repository
 git remote add origin <url> => add url of remote repo and name the ref origin
@@ -135,6 +150,8 @@ git checkout <tag> => checkout a tag
 git tag -d <tag> => delete a tag
 git tag -n <tag => show tag details
 
+ssh user@host git init --bare /path/to/repo.git - initialize an empty remote repository
+
 [tags]
 - tag - a ref that points to a specific point in commit history, that is used for a marked version release
   eg v1.1.3
@@ -170,10 +187,15 @@ branches:
 - short lived -> created for purposes which are short term eg a bug fix, feature... Once integration with a long term branch is done,
 		  these branches are deleted
 
-branching strategies:
-- github flow -> one long lived branch(changes are made to it in the form of commits, not merges)
-- gitflow -> several long branches and short lived branches. Changes to the long running branches are made via merges, not commits
-	  -> once the short running branches have been merges with the long running ones, they are deleted.
+[git workflow]
+git workflow
+  => recipe/set of standards for how to use git to accomplish tasks in a consistent & productive manner
+branching strategies(git workflow):
+- github flow(centralized) -> one long lived branch(changes are made to it in the form of commits, not merges)
+- gitflow
+    -> several long branches and short lived branches. Changes to the long running branches are made via merges,
+       not commits
+	  -> once the short running branches have been merged with the long running ones, they are deleted.
 	  
 [be careful with]
 [commands]
