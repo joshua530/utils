@@ -13,6 +13,11 @@ return newState
 [store]
 createStore({reducers:{<reducers here>}})
 
+[action creator]
+returns an action
+actionCreator() { return {type: TYPE, payload: [data]} }
+it could even use thunk to dispatch an action to the store
+
 [key methods]
 getState(), subscribe(), dispatch(), connect()
 
