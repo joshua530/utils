@@ -1,0 +1,6 @@
+event.target
+  => refers to both the element that the event is attached to and its children.
+  => performing an action on a child element will therefore affect the event
+  => eg when changing dom attributes, clicking on a child element will change the child element's attribute
+     when using event.target
+     However, if event.currentTarget is used, only the dom attributes of the parent will be changed
