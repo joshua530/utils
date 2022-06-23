@@ -22,6 +22,7 @@ f:a→b - f takes a as input and returns b
 Σ(capital sigma) denotes summation for a range of numbers
 ≠ - not equal to
 |x| - the absolute value of x(without -ve sign)
+∧ - and (x > 2 ∧ x ≤ 100) x is greater than 2 and x is less than or equal to 100
 ∅ - empty set
 O - big o notation
 Ω - bit omega function(like big o notation, used to describe the complexity or performance of an algorithm)
