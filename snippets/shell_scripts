@@ -42,6 +42,12 @@ seq <start> <end> (both start and end are inclusive)
 [get numeric file permissions]
 stat -c '%a' <file>
 
+[get pid of current bash script]
+echo $$
+
+[get pid of current bash instance]
+echo $BASHPID
+
 [get pid of process using port number]
 sudo netstat -tupln|grep <port>|rev|cut -d '/' -f 2|cut -d ' ' -f 1|rev
 
