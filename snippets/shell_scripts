@@ -1,60 +1,22 @@
-[get serial number]
-dmidecode -s system-serial-number(run as root)
-
-[replace all whitespace in a single line]
-sed -E 's/[[:space:]]*//g'
-sed -E 's/\s*//g'
-
-[replace all whitespace in multiple lines]
-sed -E ':a; N; s/\s+//g; ta'
-awk 'BEGIN {RS=""} { gsub(/\s+/,""); print $1 }'
-
-[send items to recycle bin using terminal]
-gio trash ...items
-
-[get pid of item using netstat and port number]
-sudo netstat -tupln|grep 5000|rev|cut -d '/' -f 2|cut -d ' ' -f 1|rev
-
-[help for conditions in if statements]
-help test
-
-[run command as another user]
-sudo -u <user> <command>
-
-[get numeric file permissions]
-stat -c '%a' <file>
-
-[create more than one alias simulataneously]
-alias a='command'; b='command'
-
-[temporarily don't use alias value
-\<alias>
-
-[perform arithmetic]
-$((expression)) - spaces in between numbers don't matter
-
-[extract keys from pem file]
-ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
+[batch rename files]
+for file in ./*.ts; do
+ new_file=$(echo "$file" | rev | cut -d'.' -f2- | rev).mpg
+ mv "$file" "$new_file" 
+done
 
 [cat with EOF(heredoc)]
 cat << EOF | xargs -I{} sudo apt -y {}
 <inputs>
 EOF
 
-[kill background jobs using index]
-kill %<background number>
+[copy file contents to clipboard]
+xclip -sel c < <the file>
 
-[upgrade a single package]
-sudo apt install --only-upgrade <package>
+[create more than one alias simulataneously]
+alias a='command'; b='command'
 
-[force systemctl reload]
-systemctl daemon-reload
-
-[batch rename files]
-for file in ./*.ts; do
- new_file=$(echo "$file" | rev | cut -d'.' -f2- | rev).mpg
- mv "$file" "$new_file" 
-done
+[create vscode extensions installation script]
+code --list-extensions|sed 's/^/code --install-extension /' > vscode_extensions.sh
 
 [check whether command exists]
 if [ $(command -v <command> 2>/dev/null) ]; then
@@ -65,4 +27,80 @@ if [ ! $(command -v <command> 2>/dev/null) ]; then
   // not installed message
 fi
 
+[display colorful system info]
+neofetch
+
+[extract keys from pem file]
+ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
+
+[force systemctl reload]
+systemctl daemon-reload
+
+[generate range of numbers]
+seq <start> <end> (both start and end are inclusive)
+
+[get numeric file permissions]
+stat -c '%a' <file>
+
+[get pid of process using port number]
+sudo netstat -tupln|grep <port>|rev|cut -d '/' -f 2|cut -d ' ' -f 1|rev
+
+[get serial number]
+dmidecode -s system-serial-number(run as root)
+
+[help for conditions in if statements]
+help test
+
+[kill background jobs using index]
+kill %<background number>
+
+[look for errors in bash script]
+shellcheck <script>
+
+[loop over a range of numbers]
+[[range generated using curly braces syntax]]
+for i in {<start>...<stop>};do (inclusive of start and stop)
+  <code>
+done
+[[c style for loop]]
+for ((i=<n>; condition; <how to change i>)); do
+  <code>
+done
+[[using generated sequence of numbers]]
+for i in $(seq <start> <stop>); do
+  <code>
+done
+
+[paste to file]
+xclip -o > <the file> (overwrite)
+xclip -o >> <the file> (append)
+
+[perform arithmetic]
+$((expression)) - spaces in between numbers don't matter
+
+[replace all whitespace in a single line]
+sed -E 's/[[:space:]]*//g'
+sed -E 's/\s*//g'
+
+[replace all whitespace in multiple lines]
+sed -E ':a; N; s/\s+//g; ta'
+awk 'BEGIN {RS=""} { gsub(/\s+/,""); print $1 }'
+
+[run command as another user]
+sudo -u <user> <command>
+
+[run process in the background and keep it running even when connected shell is closed]
+nohup <command> &
+
+[send items to recycle bin using terminal]
+gio trash ...items
+
+[temporarily don't use alias value]
+\<alias>
+
+[upgrade a single package]
+sudo apt install --only-upgrade <package>
+
+[view bash logical operators and whatnot]
+help test
 
