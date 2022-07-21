@@ -19,6 +19,9 @@ for index in ${!array[@]:-};do
 done
 
 neofetch
+
+shellcheck
+
 seq <start> <end> (both start and end are inclusive)
 
 [range]
