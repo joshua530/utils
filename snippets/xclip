@@ -1,0 +1,2 @@
+[pipe to xclip]
+<command> | xclip -sel clip
