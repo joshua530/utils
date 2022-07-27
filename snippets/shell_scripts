@@ -104,6 +104,7 @@ gio trash ...items
 [shift command line arguments]
 shift(command line argument $<n> will become $<n-1> ie $0 will now become
 the first argument and the script name will be discardes)
+shift <number of args to shift> eg shift 4 will shift $1 to $5
 
 [temporarily don't use alias value]
 \<alias>
