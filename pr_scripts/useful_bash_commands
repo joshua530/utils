@@ -1,4 +1,4 @@
-gio
+gio - gio utilities
 xclip - clipboard utility program
 jq - json formatter
 tidy - html formatter
@@ -6,3 +6,4 @@ mogrify - images
 shellcheck - look for errors in bash scripts
 neofetch - display interesting system info
 tee - read from standard input and write to standard output and files
+nc(netcat) - used for debugging network ports & interfaces

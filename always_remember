@@ -3,3 +3,4 @@ Write tests
 Always work from a plan
 
 Whenever you encounter a bug or something new, record it somewhere for future reference
+Always quote shell variables when using them in a command
