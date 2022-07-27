@@ -101,6 +101,10 @@ nohup <command> &
 [send items to recycle bin using terminal]
 gio trash ...items
 
+[shift command line arguments]
+shift(command line argument $<n> will become $<n-1> ie $0 will now become
+the first argument and the script name will be discardes)
+
 [temporarily don't use alias value]
 \<alias>
 
