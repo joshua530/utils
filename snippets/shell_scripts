@@ -84,6 +84,9 @@ xclip -o >> <the file> (append)
 [perform arithmetic]
 $((expression)) - spaces in between numbers don't matter
 
+[redirect file contents to a command(like stdin)]
+<command> < <file-name>
+
 [replace all whitespace in a single line]
 sed -E 's/[[:space:]]*//g'
 sed -E 's/\s*//g'
