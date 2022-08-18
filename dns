@@ -1,0 +1,42 @@
+--- DNS RECORDS ---
+ A - address record
+---
+Address mapped to a web address
+example:(foo.bar maps to the given ip address)
+foo.bar	A	1.2.32.44
+
+
+ CNAME - canonical name record
+-------
+A web address is mapped to a canonical one(one is an 'alias' of the other)
+example: (foo.bar is the canonical name for the two addresses)
+www.foo.com	CNAME	foo.bar
+foo.bar.net	CNAME	foo.bar
+
+
+ MXNAME - mail exchanger record
+--------
+Specifies mail server responsible for receiving mail for a domain
+example:
+Domain			TTL   Class    Type  Priority      Host
+foo.bar		1936		IN							MX				10												mail.foo.bar
+A domain may have an array of mail servers for load balancing and
+redundancy, where one or more of those servers acts as a backup server
+
+
+ TXT - text record
+-----
+associates arbitrary text with a host or or other name, such as human 
+readable information about a server, network, data center, or other 
+accounting information
+example:
+sam.widgets.com.    IN   TXT   "favorite drink=orange juice"
+example.com.   IN   TXT   "This domain name is reserved for use in documentation"
+
+
+
+Domain - domain name
+Type - record type
+Class - class of the record
+Ttl - time to live(how long to cache before it is requeried)
+Data length - length of the record type-specific data
