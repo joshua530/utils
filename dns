@@ -40,3 +40,10 @@ Type - record type
 Class - class of the record
 Ttl - time to live(how long to cache before it is requeried)
 Data length - length of the record type-specific data
+
+
+
+--- host name resolution ---
+Browser -> os -> Resolver(ISP) -> Root server -> TLD(top level domain) server -> Authoritative name server
+The resolver's main task is to know the root server
+Once the ip address of a host has been found, it is cached so that the query happens faster next time
