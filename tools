@@ -8,3 +8,4 @@ neofetch - display interesting system info
 tee - read from standard input and write to standard output and files
 nc(netcat) - used for debugging network ports & interfaces
 dig - perform dns queries
+ss - sockets investigation tool
