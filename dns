@@ -41,6 +41,11 @@ Class - class of the record
 Ttl - time to live(how long to cache before it is requeried)
 Data length - length of the record type-specific data
 
+The domain registrar stores domain names when purchased and communicates
+to the TLD registry the authoritative name servers
+NS - name server
+SOA - start of authority
+
 
 
 --- host name resolution ---
