@@ -1,7 +1,7 @@
 --- DNS RECORDS ---
  A - address record
 ---
-Address mapped to a web address
+Address mapped to an ip address
 example:(foo.bar maps to the given ip address)
 foo.bar	A	1.2.32.44
 
