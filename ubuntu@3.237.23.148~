@@ -1,7 +1,0 @@
-ln(x)[natural logarithm] - the logarithm of a number x to the base of the constant e(euler's constant) ie loge x
-
- Logarithmic operations
--------------------------
-log(xy)=log x + log y
-log n^b=b.log n
-loga b = logc b/logc a
