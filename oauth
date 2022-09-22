@@ -14,3 +14,16 @@ https://oauth-provider.net/auth?client_id=vaglv0mepz3hmaohpjpzv&redirect_uri=htt
 - client_id = unique id of client application(provided when client application registers with oauth provider)
 - response_type = the type of data returned from the endpoint used(in our case, /auth is the endpoint)
 - scope = the data to be accessed and what operations the client application will perform on it
+
+-- more --
+- openid -> used in conjunction with oauth to add some more features related
+to authenticating and identifying users. It is built on top of oauth and was
+made specifically for authentication. OAuth was not intended for authentication when it was created.
+- for openID:
+		- relying party aka 'client application' in oauth
+		- end user aka 'resource owner'
+		- openID provider aka 'oauth provider'
+- openid more info:
+-> claims: key, value pairs that represent user information on the server
+-> scopes(similar to all identity providers, unlike in oauth where the
+scopes are different for each provider)examples of standard scopes: email, address, phone, profile

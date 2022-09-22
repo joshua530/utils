@@ -1,0 +1,4 @@
+-- directory traversal --
+- allows us to access parent paths
+eg http://foobar.com/bar/bars/../../another/path => equivalent to
+http://foobar.com/another/path when dir traversal vulnerability is present

@@ -1,0 +1,5 @@
+xss - cross site scripting
+csrf - cross site request forgery
+csp - Content-security-policy
+	eg Content-Security-Policy: script-src '<nonce>'
+				Content-Security-Policy: default-src 'self' site.example.com

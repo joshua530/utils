@@ -1,0 +1,2 @@
+- ssrf (server side request forgery)
+- an attacker forces a server to perform a request to an unintended location
