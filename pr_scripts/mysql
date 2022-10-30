@@ -30,6 +30,7 @@ use <db>;
 
 -- general
 show variables[ like '%whatever%';]
+select 1 in (1,2,3,4); -> check for presence of item in list
 
 
 create table customer (
