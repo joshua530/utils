@@ -1,0 +1,18 @@
+[where C- = control, so C-b = ctrl + b]
+tmux - new tmux session
+C-b % - split horizontally
+C-b " - split vertically
+C-b <direction>[left / right / top / bottom] - navigate
+C-d / exit - close pane
+C-b c - new window
+C-b p - navigate to previous window
+C-b <n> - navigate to window number n
+C-b d - detach current session for later use[place it in background]
+C-b D - detach sessions interactively
+tmux ls - list detached sessions
+tmux attach -t <session number> - connect to detached session
+tmux new -s <session name> - start session with new name
+tmux rename-session -t <session number> <new name> - rename session
+C-b z - make pane go full screen, hit C-b z to restore it to its former size
+C-b C-<direction> - resize pane in <direction>
+C-b , - rename current window
