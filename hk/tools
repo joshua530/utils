@@ -1,0 +1,34 @@
+phpggc
+hashcat -a 0 -m 16500 <jwt> <wordlist>
+wayback url -> endpoints still live but not in live website
+
+-- automation flow --
+recon for the win(reconFTW)
+axiom
+
+-- content discovery --
+-> burp
+-> hakrawler
+-> zap
+-> dirbuster(java)**
+-> search engines
+-> wayback machine
+-> Internet forums. Hidden configs, endpoints, bugs, source code...
+-> wikto(.net)**
+-> apkurlgrep - find endpoints in apks
+
+
+-- server side technologies fingerprinting --
+-> httprecon
+
+-- decompiler --
+-> https://varaneckas.com/jad/ (java decompiler[jad])
+
+-- online info search --
+google advanced search operators
+
+-- sql attacks --
+sqlmap
+
+-- tips --
+-> use debuggers with breakpoints to understand the flow(most modern ides have integrated debuggers)
