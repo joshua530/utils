@@ -12,3 +12,5 @@ ss - sockets investigation tool
 nslookup - query internet name servers
 tmux - teminal splitter
 strace - debugging tool(attached to process, or anything else)
+ab - apache bench - simulate requests
+tmux - terminal splitter
