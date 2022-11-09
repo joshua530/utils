@@ -13,6 +13,7 @@ tmux ls - list detached sessions
 tmux attach -t <session number> - connect to detached session
 tmux new -s <session name> - start session with new name
 tmux rename-session -t <session number> <new name> - rename session
+tmux new-session -d '<command>' - run command in detached session
 C-b z - make pane go full screen, hit C-b z to restore it to its former size
 C-b C-<direction> - resize pane in <direction>
 C-b , - rename current window
