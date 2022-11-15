@@ -30,6 +30,9 @@ fi
 [display colorful system info]
 neofetch
 
+[download folders recursively]
+curl -r -np -k <link>
+
 [extract keys from pem file]
 ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
 
