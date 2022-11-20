@@ -36,3 +36,4 @@ eg
 Function('console.log(1);return 0;') == 
 function() {console.log(1);return 0;}
 To access the function object, access <function>.constructor where <function> is any function object
+The .constructor of a function will be the function associated with the internal prototype of that function
