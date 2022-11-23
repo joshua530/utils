@@ -9,6 +9,9 @@ cat << EOF | xargs -I{} sudo apt -y {}
 <inputs>
 EOF
 
+[exclude certain files when copying]
+cp -r !(<pattern to exclude>|...<more patterns to exclude>) <destination folder>
+
 [copy file contents to clipboard]
 xclip -sel c < <the file>
 
