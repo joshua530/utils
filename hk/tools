@@ -1,4 +1,4 @@
-phpggc
+phpggc -> php generic gadget chains
 ysoserial -> java gadget chains
 exiftool - for editing exif image data
 hashcat -a 0 -m 16500 <jwt> <wordlist>
