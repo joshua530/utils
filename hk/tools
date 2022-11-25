@@ -1,4 +1,5 @@
 phpggc
+ysoserial -> java gadget chains
 exiftool - for editing exif image data
 hashcat -a 0 -m 16500 <jwt> <wordlist>
 wayback url -> endpoints still live but not in live website
