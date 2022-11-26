@@ -93,6 +93,9 @@ $((expression)) - spaces in between numbers don't matter
 [redirect file contents to a command(like stdin)]
 <command> < <file-name>
 
+[redirect stdout and stderr of one command to the stdin of another command]
+<command1> |& <command2>
+
 [replace all whitespace in a single line]
 sed -E 's/[[:space:]]*//g'
 sed -E 's/\s*//g'
