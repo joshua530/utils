@@ -1,7 +1,7 @@
 [where C- = control, so C-b = ctrl + b]
 tmux - new tmux session
-C-b % - split horizontally
-C-b " - split vertically
+C-b % - split vertically
+C-b " - split horizontally
 C-b <direction>[left / right / top / bottom] - navigate
 C-d / exit - close pane
 C-b c - new window
