@@ -2,6 +2,11 @@
 - parties => client application, user, oauth provider
 - grant type dicates the flow that will be used when a client application is using an oauth service
 
+-- client application --
+- client_secret -> secret code used for communication over secure back channel
+- client_id -> unique client identifier with the oauth provider
+
+
 -- grant types --
 - authorization code grant type(back channel communication)
 - implicit grant type(user's browser communication)
@@ -27,3 +32,4 @@ made specifically for authentication. OAuth was not intended for authentication 
 -> claims: key, value pairs that represent user information on the server
 -> scopes(similar to all identity providers, unlike in oauth where the
 scopes are different for each provider)examples of standard scopes: email, address, phone, profile
+
