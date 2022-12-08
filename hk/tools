@@ -1,7 +1,7 @@
 phpggc -> php generic gadget chains
 ysoserial -> java gadget chains
 exiftool - for editing exif image data
-hashcat -a 0 -m 16500 <jwt> <wordlist> -> for bruteforcing a secret key used for signing a jwt from a given wordlist 
+hashcat -a 0 -m 16500 <jwt> <wordlist>[--show] -> for bruteforcing a secret key used for signing a jwt from a given wordlist 
 wayback url -> endpoints still live but not in live website
 base64 - encode / decode base64
 
