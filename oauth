@@ -32,4 +32,5 @@ made specifically for authentication. OAuth was not intended for authentication 
 -> claims: key, value pairs that represent user information on the server
 -> scopes(similar to all identity providers, unlike in oauth where the
 scopes are different for each provider)examples of standard scopes: email, address, phone, profile
+-> jwks -> a set of keys containing the public keys used for verifying any jwt issued by the authorization server
 
