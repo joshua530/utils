@@ -23,3 +23,8 @@
 }
 [signature](made from encoded header and payload)
 signature=HMACSHA256(base64UrlEncode(header)+'.'+base64UrlEncode(payload),secret)
+
+-- interesting jwt parameters --
+jwk -> embedded key
+jku -> url for key
+kid -> identity of key(could be anything from a hash, file, database item...)
