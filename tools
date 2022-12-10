@@ -15,3 +15,4 @@ strace - debugging tool(attached to process, or anything else)
 ab - apache bench - simulate requests
 tmux - terminal splitter
 jless - view json data via terminal
+nala - package manager
