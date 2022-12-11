@@ -1,0 +1,10 @@
+-> autonomous system - a large network or group of networks that has a unified routing policy
+-> autonomous system number(ASN) - unique id for autonomous system
+-> every AS controls a specific set of IP addresses, just as every town's post office is responsible for delivering mail to all the addresses within that town
+-> The range of IP addresses that a given AS has control over is called their "IP address space."
+-> AS routing policy - a list of the IP address space that the AS controls, plus a list of the other ASes to which it connects
+-> IP address space - a specified range of ip addresses
+-> Border Gateway Protocol (BGP) - the routing protocol for the Internet. It routes packets in between ASes
+-> ASN - unique 16 bit numbers between 1 and 65534 or 32 bit numbers between 131072 and 4294967294. Format = AS<number> eg AS232323
+-> ASNs are only required for external communications with inter-network routers(using BGP)
+-> ASes connect with each other and exchange network traffic (data packets) through a process called peering
