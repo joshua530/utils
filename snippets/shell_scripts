@@ -104,6 +104,9 @@ sed -E 's/\s*//g'
 sed -E ':a; N; s/\s+//g; ta'
 awk 'BEGIN {RS=""} { gsub(/\s+/,""); print $1 }'
 
+[report file system disk space usage]
+df
+
 [run command as another user]
 sudo -u <user> <command>
 
