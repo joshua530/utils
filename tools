@@ -1,7 +1,7 @@
 gio - gio utilities
 xclip - clipboard utility program
 jq - json formatter
-tidy - html formatter
+tidy - html and xml formatter
 mogrify - images
 shellcheck - look for errors in bash scripts
 neofetch - display interesting system info
