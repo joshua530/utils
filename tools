@@ -10,9 +10,10 @@ nc(netcat) - used for debugging network ports & interfaces(can be used to listen
 dig - perform dns queries
 ss - sockets investigation tool
 nslookup - query internet name servers
-tmux - teminal splitter
 strace - debugging tool(attached to process, or anything else)
 ab - apache bench - simulate requests
 tmux - terminal splitter
 jless - view json data via terminal
 nala - package manager
+host, dig - dns lookup
+xmllint - parse xml
