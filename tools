@@ -1,6 +1,7 @@
 gio - gio utilities
 xclip - clipboard utility program
-jq - json formatter
+jq - json formatter and parser
+htmlq - html parser
 tidy - html and xml formatter
 mogrify - images
 shellcheck - look for errors in bash scripts
@@ -16,4 +17,4 @@ tmux - terminal splitter
 jless - view json data via terminal
 nala - package manager
 host, dig - dns lookup
-xmllint - parse xml
+free - check ram usage
