@@ -18,3 +18,4 @@ jless - view json data via terminal
 nala - package manager
 host, dig - dns lookup
 free - check ram usage
+comm - check for common, uncommon, and similar lines between two files
