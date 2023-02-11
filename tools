@@ -21,6 +21,7 @@ free - check ram usage
 comm - check for common, uncommon, and similar lines between two files
 xxd - perform hex dump of file
 eject - 'eject' and 'uneject' disks
+shuf - generate random number in a given range
 
 -- android debugging and tinkering --
 adb
