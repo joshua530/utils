@@ -22,6 +22,7 @@ comm - check for common, uncommon, and similar lines between two files
 xxd - perform hex dump of file
 eject - 'eject' and 'uneject' disks
 shuf - generate random number in a given range
+recollapse - permutates and encodes input
 
 -- android debugging and tinkering --
 adb
