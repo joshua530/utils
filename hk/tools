@@ -7,6 +7,14 @@ hashcat -a 0 -m 16500 <jwt> <wordlist>[--show] -> for bruteforcing a secret key 
 wayback url -> endpoints still live but not in live website
 base64 - encode / decode base64
 
+get_favicon_hash.py -> find murmur favicon hash
+
+-- android debugging and tinkering --
+adb
+apk-mitm
+keytool
+uber-apk-signer
+
 -- automation flow --
 recon for the win(reconFTW)
 axiom
@@ -21,6 +29,7 @@ axiom
 -> Internet forums. Hidden configs, endpoints, bugs, source code...
 -> wikto(.net)**
 -> apkurlgrep - find endpoints in apks
+-> get_favicon_hash.py - find endpoints using a given favicon
 
 
 -- server side technologies fingerprinting --
