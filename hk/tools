@@ -15,6 +15,9 @@ apk-mitm
 keytool
 uber-apk-signer
 
+-- beautify js files --
+js-beautify => pip install jsbeautifier
+
 -- automation flow --
 recon for the win(reconFTW)
 axiom
@@ -23,13 +26,13 @@ axiom
 -> burp
 -> hakrawler
 -> zap
--> dirbuster(java)**
 -> search engines
 -> wayback machine
 -> Internet forums. Hidden configs, endpoints, bugs, source code...
 -> wikto(.net)**
 -> apkurlgrep - find endpoints in apks
 -> get_favicon_hash.py - find endpoints using a given favicon
+-> amass
 
 
 -- server side technologies fingerprinting --
