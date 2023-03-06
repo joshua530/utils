@@ -1,0 +1,29 @@
+#User OnHost = (Runas-User:Group) Commands             -> general directive
+#user host=(user:group) command                        -> user directive
+#%group host=(user:group) command                      -> group directive
+#user host=(user:group) NOPASSWD:command               -> user directive with nopasswd
+#%group host=(user:group) NOPASSWD:command             -> group directive with nopasswd
+#User_Alias <alias name>=<user>,<user2>,...            -> alias for many users
+#Runas_Alias <alias name>=<user>,<user2>,...           -> alias for run as user
+#Host_Alias <alias name>=<host>,<host>,...             -> alias for hosts(no subnet)
+#Host_Alias <alias name>=<ip/mask>,<host>,...          -> alias for hosts with subnet mask
+#Cmnd_Alias <alias name>=<cmd>,<cmd2>,<cmd3>,...       -> alias for commands
+
+# an item can also be excluded from a list using a ! eg
+User_Alias NOT_ROOT=ALL,!root                          -> all users except root
+
+User_Alias ADMINS=john,jane,kim
+Runas_Alias ENGINEERS=john,jane
+Host_Alias HR_IP_SPACE=10.22.3.43/24,10.21.3.43
+Host_Alias BOTS_IP=192.3.43.2,10.44.23.1
+Cmnd_Alias READWRITE=/usr/bin/cat,/usr/bin/ls,less,more
+
+# if only one word is provided in (user:group) directive, the default is the user
+sysadmin    ALL=(root) /usr/bin/cat /etc/shadow
+%group      ALL=(root:root) NOPASSWD:/usr/bin/ls /root/foo/bar
+ADMINS      ALL=(root) /usr/bin/custom-bin
+intern      ALL=(ENGINEERS) /usr/bin/engineers/engineers-bin
+spam_bot    BOTS_IP=(bots:bots) /usr/bin/spam-cleanup /var/www/docs
+recruiter   HR_IP_SPACE=(hr:hr) /usr/bin/mail
+user        ALL=(rw:rw) READWRITE
+privileged  ALL=(NOT_ROOT) ALL
